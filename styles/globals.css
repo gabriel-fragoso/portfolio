@@ -2,26 +2,191 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+
+position: relative;
+width: 100vw;
+overflow-x: hidden;
+height: 100vh;
+font-family: 'Work Sans', sans-serif;
+
+background:#010101;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.link {
+  transition: all .3s;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.link::before {
+  content: ' ';
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  width: 0px;
+  height: 3px;
+  border-radius: .5rem;
+  background-color: #FFF;
+  margin: 0 auto;
+  transition: all .4s ease;
+}
+
+.link:hover::before {
+  width: 10%;
+  transition: .3s;
+}
+
+.link:hover {
+  transition: .3s;
+  background: linear-gradient(99.05deg, #002E6F 0.07%, #1A6FB2 106.32%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: pointer;
+}
+
+@media(max-width: 1682px) {
+  .clientes {
+    margin-left: 100px;
+  }
+
+  .group-work {
+    margin-left: 64px;
+    margin-right: 64px;
+  }
+
+  .about-group {
+    margin-left: 64px;
+    margin-right: 64px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media(max-width: 972px) {
+  .apresentacao {
+    font-size: 32px;
+  }
+
+  .about-h1 {
+    font-size: 32px;
+  }
+
+  .footer-h1 {
+    font-size: 32px;
+  }
+
+  .clientes {
+    font-size: 20px;
+    text-align: center;
+    margin-left: 0;
+  }
+  
+  .work-select {
+    font-size: 20px;
+  }
+  
+  .about {
+    font-size: 20px;
+  }
+
+  .ul {
+    display: none;
+  }
+  
+  .header {
+    justify-content: center;
+    position: relative;
+  }
+}
+
+@media(max-width: 1356px) {
+  .about-group {
+    justify-content: center;
+  }
+
+  .about-group > div > p {
+    text-align: center;
+  }
+  .about-group > div > h1 {
+    text-align: center;
+  }
+
+  .image-about {
+    display: none;
+  }
+}
+
+@media(max-width: 1275px) {
+  .description {
+    display: none;
+  }
+  .content-work {
+    justify-content: center;
+    margin: 0;
+  }
+  .work-select {
+    text-align: center;
+  }
+}
+
+@media(max-width: 360px) {
+  .apresentacao {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  .footer-h1 {
+    font-size: 20px;
+  }
+  .about-h1 {
+    font-size: 20px;
+  }
+  .clientes {
+    width: 260px;
+    text-align: left;
+    margin-left: 32px;
+  }
+  .image-logo {
+    width: 200px;
+  }
+}
+
+@media(max-width: 568px) {
+  .apresentacao {
+    font-size: 24px;
+    margin-top: 60px;
+  }
+  .footer-h1 {
+    font-size: 24px;
+  }
+  .about-h1 {
+    font-size: 24px;
+  }
+  .apresentacao-div {
+    gap: 60px;
+  }
+  .clientes {
+    font-size: 16px;
+    margin-top: 60px;
+  }
+
+  .about {
+    font-size: 16px;
+  } 
+
+  .work-select {
+    font-size: 16px;
+    margin-top: 60px;
+  }
+
+  .image-logo {
+    width: 250px;
+  }
+  .social {
+    gap: 10px;
+  }
 }
