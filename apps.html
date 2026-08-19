@@ -1,0 +1,105 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="Apps page" subtitle="Light mode, matches landing page — placeholder data" -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gabriel Fragoso — Apps</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface-app);overflow-x:hidden}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:20px 32px;background:rgba(255,251,247,0.82);backdrop-filter:blur(10px);box-shadow:var(--shadow-sm)}
+.logo{font-family:var(--font-display);font-size:20px;color:var(--ink-950);text-transform:uppercase;letter-spacing:var(--tracking-tight)}
+.navlinks{display:flex;align-items:center;gap:32px;font-family:var(--font-ui);font-size:14px;font-weight:500}
+.navlinks a{color:var(--text-secondary);text-decoration:none;transition:color .15s var(--ease-out)}
+.navlinks a:hover,.navlinks a.active{color:var(--text-primary)}
+.btn{font-family:var(--font-ui);font-weight:600;border-radius:var(--radius-md);border:none;cursor:pointer;transition:background .15s var(--ease-out),transform .1s var(--ease-out);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff;padding:12px 22px;font-size:14px}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-ghost{background:transparent;color:var(--ink-950);padding:8px 16px;font-size:13px;border:1px solid var(--border-default)}
+.btn-ghost:hover{background:var(--surface-sunken)}
+.hero{padding:160px 0 40px}
+.eyebrow{font-family:var(--font-ui);font-size:12px;font-weight:700;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px}
+.h1{font-family:var(--font-display);font-size:clamp(44px,6vw,68px);line-height:.98;color:var(--ink-950);text-transform:uppercase;letter-spacing:var(--tracking-tight);margin:16px 0 18px}
+.sub{font-family:var(--font-body);font-size:18px;line-height:1.55;color:var(--text-secondary);max-width:520px;margin-bottom:28px}
+.note{font-family:var(--font-mono);font-size:12px;color:var(--warning);background:var(--warning-bg);border-radius:var(--radius-md);padding:10px 14px;display:inline-block;margin-bottom:40px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.filter{font-family:var(--font-ui);font-size:13px;font-weight:600;padding:8px 16px;border-radius:var(--radius-pill);background:var(--surface-card);border:1px solid var(--border-default);color:var(--text-secondary);cursor:pointer}
+.filter.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.count{font-family:var(--font-ui);font-size:13px;color:var(--text-muted);margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-bottom:100px}
+.card{background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);padding:24px;display:flex;flex-direction:column;gap:14px;transition:box-shadow .2s var(--ease-out),transform .2s var(--ease-out)}
+.card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px)}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start}
+.icon{width:48px;height:40px;display:flex;align-items:center;object-fit:contain}
+.icon img{max-height:100%;max-width:100%;object-fit:contain}
+.stars{font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);border:1px solid var(--border-default);border-radius:var(--radius-pill);padding:4px 10px;display:flex;align-items:center;gap:4px}
+.stars svg{color:var(--sun-600)}
+.card h3{font-family:var(--font-ui);font-size:17px;font-weight:600;color:var(--text-primary);margin:0}
+.card .tag{font-family:var(--font-ui);font-size:13px;font-weight:500;color:var(--text-muted);margin:-8px 0 0}
+.card p{font-family:var(--font-body);font-size:14px;color:var(--text-secondary);line-height:1.5;margin:0;flex:1}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--font-mono);font-size:11px;color:var(--text-secondary);background:var(--surface-sunken);padding:4px 10px;border-radius:var(--radius-sm)}
+.chip.hl{background:var(--accent-soft);color:var(--accent-hover)}
+.linkbtn{font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:6px;align-self:flex-start}
+.linkbtn:hover{color:var(--accent-hover)}
+footer{padding:56px 0;border-top:1px solid var(--border-default)}
+.foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.foot-links{display:flex;gap:28px;font-family:var(--font-ui);font-size:13px}
+.foot-links a{color:var(--text-secondary);text-decoration:none}
+.foot-links a:hover{color:var(--text-primary)}
+.foot-fine{font-family:var(--font-mono);font-size:12px;color:var(--text-muted);margin-top:28px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}.navlinks{display:none}}
+</style></head>
+<body>
+
+<nav><div class="logo">Gabriel Fragoso</div>
+<div class="navlinks"><a href="index.html">Home</a><a href="index.html#produtos">Products</a><a href="index.html#experiencia">Experience</a><a href="apps.html" class="active">Apps</a></div>
+<a href="index.html#contato" class="btn btn-primary">Get in touch</a></nav>
+
+<div class="wrap hero">
+<div class="eyebrow"><i data-lucide="package" width="14" height="14"></i>Apps</div>
+<h1 class="h1">Stuff I've built.</h1>
+<p class="sub">Every open-source project and app I ship, in one place.</p>
+<div class="note">Placeholder data — real catalog not provided yet. Same two apps repeated to preview the layout.</div>
+<div class="filters">
+<button class="filter active">All</button>
+<button class="filter">Products</button>
+<button class="filter">Web Apps</button>
+</div>
+<div class="count" id="count">10 projects</div>
+</div>
+
+<div class="wrap grid" id="grid"></div>
+
+<footer><div class="wrap">
+<div class="foot-row">
+<div class="logo" style="font-size:16px">Gabriel Fragoso</div>
+<div class="foot-links"><a href="index.html#produtos">Products</a><a href="index.html#experiencia">Experience</a><a href="apps.html">Apps</a><a href="index.html#contato">Contact</a></div>
+</div>
+<div class="foot-fine">© 2026 Gabriel Fragoso · CNPJ 66.231.519/0001-99 · +55 83 99830 4284</div>
+</div></footer>
+
+<script>
+lucide.createIcons();
+const apps=[
+{name:'Vai Anotando',tag:'Digital menu for restaurants',desc:'Digital menu for restaurants to sell directly through WhatsApp, with no per-order commission. 20+ active businesses.',stars:'—',chips:['Web Apps','Next.js','WhatsApp'],icon:'https://www.vaianotando.com.br/logo/texto-logo.png',url:'https://www.vaianotando.com.br/'},
+{name:'Feedget',tag:'Feedback widget for products',desc:'Smart feedback widget that collects, analyzes, and turns user opinions into product insights.',stars:'—',chips:['Products','SaaS','TypeScript'],icon:null,url:'https://feedget.io/'}
+];
+const list=[...apps,...apps,...apps,...apps,...apps];
+document.getElementById('count').textContent=list.length+' projects';
+document.getElementById('grid').innerHTML=list.map(a=>`
+<div class="card">
+<div class="card-top">
+${a.icon?`<div class="icon"><img src="${a.icon}" alt="${a.name}"></div>`:`<div class="icon" style="font-family:var(--font-display);color:var(--accent);font-size:22px;text-transform:uppercase">${a.name}</div>`}
+<span class="stars"><i data-lucide="star" width="12" height="12"></i>${a.stars}</span>
+</div>
+<h3>${a.name}</h3>
+<div class="tag">${a.tag}</div>
+<p>${a.desc}</p>
+<div class="chips">${a.chips.map((c,i)=>`<span class="chip${i===0?' hl':''}">${c}</span>`).join('')}</div>
+<a class="linkbtn" href="${a.url}" target="_blank" rel="noopener"><i data-lucide="external-link" width="14" height="14"></i>Visit</a>
+</div>`).join('');
+lucide.createIcons();
+</script>
+</body></html>

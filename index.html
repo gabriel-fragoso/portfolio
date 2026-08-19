@@ -1,0 +1,178 @@
+<!-- @dsCard group="Website" viewport="1440x900" name="Landing page" subtitle="Portfólio pessoal — Gabriel Fragoso" -->
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gabriel Fragoso — Full-Stack Developer</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="./image-slot.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:var(--surface-app);overflow-x:hidden}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+.reveal.in{opacity:1;transform:translateY(0)}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:20px 32px;transition:background .3s var(--ease-out),box-shadow .3s var(--ease-out)}
+nav.scrolled{background:rgba(255,251,247,0.82);backdrop-filter:blur(10px);box-shadow:var(--shadow-sm)}
+.logo{font-family:var(--font-display);font-size:20px;color:var(--ink-950);text-transform:uppercase;letter-spacing:var(--tracking-tight)}
+.navlinks{display:flex;align-items:center;gap:32px;font-family:var(--font-ui);font-size:14px;font-weight:500}
+.navlinks a{color:var(--text-secondary);text-decoration:none;transition:color .15s var(--ease-out)}
+.navlinks a:hover{color:var(--text-primary)}
+.btn{font-family:var(--font-ui);font-weight:600;border-radius:var(--radius-md);border:none;cursor:pointer;transition:background .15s var(--ease-out),transform .1s var(--ease-out);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--accent);color:#fff;padding:12px 22px;font-size:14px}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-lg{padding:16px 30px;font-size:16px}
+.btn-ghost{background:transparent;color:var(--ink-950);padding:12px 18px;font-size:14px;border:1px solid var(--border-default)}
+.btn-ghost:hover{background:var(--surface-sunken)}
+.hero{padding:180px 0 100px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center}
+.eyebrow{font-family:var(--font-ui);font-size:12px;font-weight:700;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px}
+.h1{font-family:var(--font-display);font-size:clamp(40px,5.5vw,68px);line-height:.98;color:var(--ink-950);text-transform:uppercase;letter-spacing:var(--tracking-tight);margin:18px 0 22px}
+.sub{font-family:var(--font-body);font-size:18px;line-height:1.55;color:var(--text-secondary);max-width:480px;margin-bottom:36px}
+.cta-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.hero-visual{position:relative}
+.floater{position:absolute;bottom:-18px;left:-24px;background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:14px 18px;display:flex;align-items:center;gap:10px;font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--text-primary)}
+section{padding:100px 0}
+.section-tag{font-family:var(--font-ui);font-size:12px;font-weight:700;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.section-head{font-family:var(--font-display);font-size:40px;text-transform:uppercase;color:var(--ink-950);max-width:640px;line-height:1.05;letter-spacing:var(--tracking-tight);margin-bottom:56px}
+.products{background:var(--surface-card);border-top:1px solid var(--border-default);border-bottom:1px solid var(--border-default)}
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.product-card{background:var(--surface-app);border:1px solid var(--border-default);border-radius:var(--radius-lg);padding:28px;display:flex;flex-direction:column;gap:16px;text-decoration:none;transition:box-shadow .2s var(--ease-out),transform .2s var(--ease-out)}
+.product-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px)}
+.product-logo{height:36px;display:flex;align-items:center}
+.product-logo img{max-height:100%;max-width:140px;object-fit:contain}
+.product-card h3{font-family:var(--font-ui);font-size:17px;font-weight:600;color:var(--text-primary);margin:0}
+.product-card p{font-family:var(--font-body);font-size:14px;color:var(--text-secondary);line-height:1.5;margin:0;flex:1}
+.product-role{font-family:var(--font-mono);font-size:12px;color:var(--accent)}
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:grid;grid-template-columns:180px 1fr;gap:32px;padding:28px 0;border-top:1px solid var(--border-default)}
+.tl-item:last-child{border-bottom:1px solid var(--border-default)}
+.tl-date{font-family:var(--font-mono);font-size:13px;color:var(--text-muted)}
+.tl-role{font-family:var(--font-ui);font-size:17px;font-weight:600;color:var(--text-primary);margin:0 0 4px}
+.tl-company{font-family:var(--font-ui);font-size:13px;color:var(--accent);font-weight:600;margin-bottom:10px}
+.tl-desc{font-family:var(--font-body);font-size:14px;color:var(--text-secondary);line-height:1.6;margin:0 0 12px;max-width:640px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);background:var(--surface-sunken);padding:4px 10px;border-radius:var(--radius-sm)}
+.stack-band{background:var(--surface-inverse)}
+.stack-grid{display:flex;flex-wrap:wrap;gap:12px}
+.stack-grid .chip{background:rgba(255,255,255,0.08);color:var(--paper);font-size:13px;padding:8px 16px;border-radius:var(--radius-pill)}
+.stack-band .section-head{color:var(--paper)}
+.cta-band{text-align:center;background:var(--surface-card);border-top:1px solid var(--border-default)}
+.cta-band h2{font-family:var(--font-display);font-size:48px;text-transform:uppercase;color:var(--ink-950);letter-spacing:var(--tracking-tight);margin:0 0 14px}
+.cta-band p{font-family:var(--font-body);font-size:16px;color:var(--text-secondary);margin:0 0 28px}
+.contact-links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+footer{padding:56px 0;border-top:1px solid var(--border-default)}
+.foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.foot-links{display:flex;gap:28px;font-family:var(--font-ui);font-size:13px}
+.foot-links a{color:var(--text-secondary);text-decoration:none}
+.foot-links a:hover{color:var(--text-primary)}
+.foot-fine{font-family:var(--font-mono);font-size:12px;color:var(--text-muted);margin-top:28px}
+@media(max-width:860px){.hero{grid-template-columns:1fr}.product-grid{grid-template-columns:1fr}.tl-item{grid-template-columns:1fr;gap:8px}.h1{font-size:44px}.navlinks{display:none}}
+</style></head>
+<body>
+
+<nav id="nav"><div class="logo">Gabriel Fragoso</div>
+<div class="navlinks"><a href="#produtos">Products</a><a href="#experiencia">Experience</a><a href="apps.html">Apps</a><a href="#contato">Contact</a></div>
+<a href="#contato" class="btn btn-primary">Get in touch</a></nav>
+
+<div class="wrap hero">
+<div class="reveal">
+<div class="eyebrow"><i data-lucide="code-2" width="14" height="14"></i>Full-Stack Developer</div>
+<h1 class="h1">Product and code,<br>from zero to production.</h1>
+<p class="sub">Co-founder and Head of Product &amp; Design at Doveon. I build interfaces and systems for products like Vai Anotando and Feedget, from first draft to launch, across Brazil, the US, and Spain.</p>
+<div class="cta-row"><a href="#produtos" class="btn btn-primary btn-lg">See products</a><a href="#contato" class="btn btn-ghost btn-lg">Get in touch</a></div>
+</div>
+<div class="hero-visual reveal">
+<image-slot id="hero-photo" style="width:100%;height:420px" shape="rounded" radius="20" placeholder="Foto de Gabriel Fragoso"></image-slot>
+<div class="floater"><i data-lucide="map-pin" width="14" height="14"></i>Brazil · US · Spain</div>
+</div>
+</div>
+
+<section class="products" id="produtos"><div class="wrap">
+<div class="section-tag reveal">Products</div>
+<div class="section-head reveal">Where my work is live.</div>
+<div class="product-grid">
+<a class="product-card reveal" href="https://www.doveon.com.br/" target="_blank" rel="noopener">
+<div class="product-logo"><img src="https://www.doveon.com.br/DOVEON-LOGO.FT.png" alt="Doveon"></div>
+<h3>Doveon</h3>
+<p>Software engineering without borders: on-demand squads and in-house products, operating in Brazil, the US, and Spain.</p>
+<div class="product-role">Co-founder · Head of Product &amp; Design</div>
+</a>
+<a class="product-card reveal" href="https://www.vaianotando.com.br/" target="_blank" rel="noopener">
+<div class="product-logo"><img src="https://www.vaianotando.com.br/logo/texto-logo.png" alt="Vai Anotando"></div>
+<h3>Vai Anotando</h3>
+<p>Digital menu for restaurants to sell directly through WhatsApp, with no per-order commission. 20+ active businesses.</p>
+<div class="product-role">Micro-SaaS · Vai line (Doveon)</div>
+</a>
+<a class="product-card reveal" href="https://feedget.io/" target="_blank" rel="noopener">
+<div class="product-logo"><span style="font-family:var(--font-display);font-size:24px;color:var(--ink-950);text-transform:uppercase">Feedget</span></div>
+<h3>Feedget</h3>
+<p>Smart feedback widget that collects, analyzes, and turns user opinions into product insights.</p>
+<div class="product-role">B2B SaaS</div>
+</a>
+</div>
+</div></section>
+
+<section id="experiencia"><div class="wrap">
+<div class="section-tag reveal">Experience</div>
+<div class="section-head reveal">The last few years, in short.</div>
+<div class="timeline">
+<div class="tl-item reveal">
+<div class="tl-date">Jul 2025 — Jun 2026</div>
+<div><div class="tl-role">Tech Lead</div><div class="tl-company">OfficeCom</div>
+<p class="tl-desc">Led frontend development for the backoffice platform and the CerteiroFC app, driving feature development with a focus on performance, stability, and scalability.</p>
+<div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span></div></div>
+</div>
+<div class="tl-item reveal">
+<div class="tl-date">Apr 2024 — Mar 2026</div>
+<div><div class="tl-role">Senior Software Engineer</div><div class="tl-company">Virtual Pay</div>
+<p class="tl-desc">Built a SaaS platform for game stores with a NestJS backend and microservices architecture. On the frontend, applied the Compound Component Pattern with Next.js, React Query, and Zustand. Also contributed to BizStore (PWA) and a Vue.js payment gateway integrated with Laravel.</p>
+<div class="chips"><span class="chip">NestJS</span><span class="chip">TypeORM</span><span class="chip">MySQL</span><span class="chip">Next.js</span><span class="chip">React Query</span></div></div>
+</div>
+<div class="tl-item reveal">
+<div class="tl-date">Apr 2024 — Jul 2025</div>
+<div><div class="tl-role">Senior Software Engineer</div><div class="tl-company">Ego Eimi</div>
+<p class="tl-desc">Worked across multiple projects as a software engineer, contributing to both frontend and backend. Frontend with Next.js, TypeScript, Tailwind CSS, and Storybook; backend with NestJS, Prisma, FastAPI (Python), Docker, and AWS, plus AI work with LangGraph and LangChain.</p>
+<div class="chips"><span class="chip">Next.js</span><span class="chip">NestJS</span><span class="chip">FastAPI</span><span class="chip">LangChain</span><span class="chip">AWS</span></div></div>
+</div>
+<div class="tl-item reveal">
+<div class="tl-date">May 2023 — May 2024</div>
+<div><div class="tl-role">Mid-Level Software Engineer</div><div class="tl-company">iTechMed</div>
+<p class="tl-desc">Worked across a diverse client base, focused on building dashboards for monitoring gateways and critical operations, using React, Node.js, and AWS (S3, CloudFront, Route 53).</p>
+<div class="chips"><span class="chip">React</span><span class="chip">Node.js</span><span class="chip">Redux</span><span class="chip">AWS</span></div></div>
+</div>
+</div>
+</div></section>
+
+<section class="stack-band"><div class="wrap">
+<div class="section-tag reveal" style="color:var(--sun-400)">Stack</div>
+<div class="section-head reveal">Everyday tools.</div>
+<div class="stack-grid reveal">
+<span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">Node.js</span><span class="chip">NestJS</span><span class="chip">Tailwind CSS</span><span class="chip">Zustand</span><span class="chip">React Query</span><span class="chip">Prisma</span><span class="chip">FastAPI</span><span class="chip">Python</span><span class="chip">Docker</span><span class="chip">AWS</span><span class="chip">MongoDB</span><span class="chip">MySQL</span><span class="chip">LangChain</span>
+</div>
+</div></section>
+
+<section class="cta-band" id="contato"><div class="wrap reveal">
+<h2>Let's talk.</h2>
+<p>About a product, a project, or just to swap ideas.</p>
+<div class="contact-links">
+<a href="mailto:fragosooliveira773@gmail.com" class="btn btn-primary btn-lg"><i data-lucide="mail" width="16" height="16"></i>fragosooliveira773@gmail.com</a>
+<a href="https://www.linkedin.com/in/gabriel-fragoso" target="_blank" rel="noopener" class="btn btn-ghost btn-lg"><i data-lucide="external-link" width="16" height="16"></i>LinkedIn</a>
+<a href="https://www.github.com/gabriel-fragoso" target="_blank" rel="noopener" class="btn btn-ghost btn-lg"><i data-lucide="external-link" width="16" height="16"></i>GitHub</a>
+</div>
+</div></section>
+
+<footer><div class="wrap">
+<div class="foot-row">
+<div class="logo" style="font-size:16px">Gabriel Fragoso</div>
+<div class="foot-links"><a href="#produtos">Products</a><a href="#experiencia">Experience</a><a href="apps.html">Apps</a><a href="#contato">Contact</a></div>
+</div>
+<div class="foot-fine">© 2026 Gabriel Fragoso · CNPJ 66.231.519/0001-99 · +55 83 99830 4284</div>
+</div></footer>
+
+<script>
+lucide.createIcons();
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>10)});
+const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*0.08+'s';io.observe(el)});
+</script>
+</body></html>

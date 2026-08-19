@@ -4,13 +4,19 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useLanguage } from "@/lib/language-context";
-import { LanguageSwitcher } from "./language-switcher";
+import { Button } from "@/components/ui/button";
+
+const navItems = [
+  { name: "Home", href: "/" },
+  { name: "Products", href: "/#products" },
+  { name: "Experience", href: "/#experience" },
+  { name: "Apps", href: "/apps" },
+  { name: "Contact", href: "/#contact" },
+];
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,21 +27,12 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = [
-    { name: "Home", href: "#" },
-    { name: t("about.title"), href: "#about" },
-    { name: t("tech.title"), href: "#tech-stack" },
-    { name: t("exp.title"), href: "#experience" },
-    { name: t("projects.title"), href: "#projects" },
-    { name: t("contact.subtitle"), href: "#contact" },
-  ];
-
   return (
     <>
       <motion.header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? "bg-gray-900/80 backdrop-blur-lg shadow-lg"
+            ? "bg-paper/90 backdrop-blur-lg shadow-sm border-b border-border"
             : "bg-transparent"
         }`}
         initial={{ y: -100 }}
@@ -46,7 +43,7 @@ export function Navbar() {
           <div className="flex items-center justify-between">
             <Link
               href="/"
-              className="text-xl font-bold font-heading bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-600"
+              className="text-xl font-display font-medium text-ink-950 uppercase tracking-tight"
             >
               Gabriel Fragoso
             </Link>
@@ -56,17 +53,19 @@ export function Navbar() {
                 <Link
                   key={index}
                   href={item.href}
-                  className="text-sm font-medium text-gray-300 hover:text-white transition-colors relative group font-body"
+                  className="text-sm font-medium text-ink-600 hover:text-ink-950 transition-colors relative group font-ui"
                 >
                   {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-coral-500 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
-              <LanguageSwitcher />
+              <Button asChild size="sm">
+                <Link href="/#contact">Get in touch</Link>
+              </Button>
             </nav>
 
             <button
-              className="md:hidden text-gray-300 hover:text-white"
+              className="md:hidden text-ink-600 hover:text-ink-950"
               onClick={() => setIsMobileMenuOpen(true)}
             >
               <Menu className="h-6 w-6" />
@@ -78,7 +77,7 @@ export function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-50 bg-gray-900/95 backdrop-blur-lg"
+            className="fixed inset-0 z-50 bg-paper/98 backdrop-blur-lg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -86,7 +85,7 @@ export function Navbar() {
           >
             <div className="flex justify-end p-6">
               <button
-                className="text-gray-300 hover:text-white"
+                className="text-ink-600 hover:text-ink-950"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <X className="h-6 w-6" />
@@ -103,7 +102,7 @@ export function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className="text-2xl font-medium text-gray-300 hover:text-white transition-colors"
+                    className="text-2xl font-display text-ink-800 hover:text-coral-500 transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.name}

@@ -19,10 +19,13 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        heading: ["var(--font-outfit)", "ui-sans-serif", "system-ui", "sans-serif"],
-        body: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
-        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
+        display: ["var(--font-display)", "sans-serif"],
+        heading: ["var(--font-display)", "sans-serif"],
+        body: ["var(--font-body)", "sans-serif"],
+        sans: ["var(--font-body)", "sans-serif"],
+        ui: ["var(--font-ui)", "sans-serif"],
+        mono: ["var(--font-mono)", "monospace"],
+        pixel: ["var(--font-pixel)", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -58,11 +61,40 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        paper: "var(--paper)",
+        ink: {
+          950: "var(--ink-950)",
+          800: "var(--ink-800)",
+          600: "var(--ink-600)",
+          400: "var(--ink-400)",
+          200: "var(--ink-200)",
+          100: "var(--ink-100)",
+        },
+        coral: {
+          50: "var(--coral-50)",
+          100: "var(--coral-100)",
+          300: "var(--coral-300)",
+          500: "var(--coral-500)",
+          600: "var(--coral-600)",
+          700: "var(--coral-700)",
+        },
+        sun: {
+          100: "var(--sun-100)",
+          400: "var(--sun-400)",
+          600: "var(--sun-600)",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        control: "10px",
+        card: "16px",
+        surface: "24px",
+      },
+      boxShadow: {
+        sm: "0 1px 2px 0 rgba(43, 38, 34, 0.06)",
+        md: "0 4px 16px -2px rgba(43, 38, 34, 0.1)",
       },
       keyframes: {
         "accordion-down": {

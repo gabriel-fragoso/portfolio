@@ -1,182 +1,109 @@
-"use client"
+"use client";
 
-import { useState, useRef } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { ChevronLeft, ChevronRight, Calendar, Briefcase } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useLanguage } from "@/lib/language-context"
+import { motion } from "framer-motion";
 
 type Experience = {
-  companyKey: string
-  periodKey: string
-  roleKey: string
-  descriptionKey: string
-}
+  period: string;
+  role: string;
+  company: string;
+  description: string;
+  stack: string[];
+};
+
+const experiences: Experience[] = [
+  {
+    period: "Jul 2025 — Jun 2026",
+    role: "Tech Lead",
+    company: "OfficeCom",
+    description:
+      "Led frontend development for the backoffice platform and the CerteiroFC app, driving feature development with a focus on performance, stability, and scalability.",
+    stack: ["React", "Next.js", "TypeScript"],
+  },
+  {
+    period: "Apr 2024 — Mar 2026",
+    role: "Senior Software Engineer",
+    company: "Virtual Pay",
+    description:
+      "Built a SaaS platform for game stores with a NestJS backend and microservices architecture. On the frontend, applied the Compound Component Pattern with Next.js, React Query, and Zustand. Also contributed to BizStore (PWA) and a Vue.js payment gateway integrated with Laravel.",
+    stack: ["NestJS", "TypeORM", "MySQL", "Next.js", "React Query"],
+  },
+  {
+    period: "Apr 2024 — Jul 2025",
+    role: "Senior Software Engineer",
+    company: "Ego Eimi",
+    description:
+      "Worked across multiple projects as a software engineer, contributing to both frontend and backend. Frontend with Next.js, TypeScript, Tailwind CSS, and Storybook; backend with NestJS, Prisma, FastAPI (Python), Docker, and AWS, plus AI work with LangGraph and LangChain.",
+    stack: ["Next.js", "NestJS", "FastAPI", "LangChain", "AWS"],
+  },
+  {
+    period: "May 2023 — May 2024",
+    role: "Mid-Level Software Engineer",
+    company: "iTechMed",
+    description:
+      "Worked across a diverse client base, focused on building dashboards for monitoring gateways and critical operations, using React, Node.js, and AWS (S3, CloudFront, Route 53).",
+    stack: ["React", "Node.js", "Redux", "AWS"],
+  },
+];
 
 export function ExperienceSection() {
-  const { t } = useLanguage()
-
-  const experiences: Experience[] = [
-    {
-      companyKey: "exp.company1",
-      periodKey: "exp.period1",
-      roleKey: "exp.role1",
-      descriptionKey: "exp.desc1",
-    },
-    {
-      companyKey: "exp.company2",
-      periodKey: "exp.period2",
-      roleKey: "exp.role2",
-      descriptionKey: "exp.desc2",
-    },
-    {
-      companyKey: "exp.company3",
-      periodKey: "exp.period3",
-      roleKey: "exp.role3",
-      descriptionKey: "exp.desc3",
-    },
-    {
-      companyKey: "exp.company4",
-      periodKey: "exp.period4",
-      roleKey: "exp.role4",
-      descriptionKey: "exp.desc4",
-    },
-  ]
-
-  const [activeIndex, setActiveIndex] = useState(0)
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  const handlePrevious = () => {
-    setActiveIndex((prev) => (prev > 0 ? prev - 1 : prev))
-  }
-
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev < experiences.length - 1 ? prev + 1 : prev))
-  }
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  })
-
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
-
   return (
-    <section id="experience" className="py-24 relative overflow-hidden" ref={containerRef}>
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black to-transparent z-10"></div>
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl"></div>
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
-
-      <motion.div style={{ opacity }} className="container mx-auto px-6 relative z-20">
-        <div className="text-center mb-16">
+    <section id="experience" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-20">
+        <div className="mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-block px-4 py-1.5 mb-4 rounded-full bg-blue-900/30 border border-blue-800/30 text-blue-400 text-sm font-medium"
+            className="eyebrow mb-4"
           >
-            {t("exp.title")}
+            Experience
           </motion.div>
-          <h2 className="heading-lg">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500">
-              {t("exp.title")}
-            </span>
+          <h2 className="heading-lg text-ink-950 max-w-xl uppercase">
+            The last few years, in short.
           </h2>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
-          <div className="overflow-hidden">
+        <div className="flex flex-col">
+          {experiences.map((exp, index) => (
             <motion.div
-              animate={{ x: `-${activeIndex * 100}%` }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="flex"
+              key={exp.company}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08, duration: 0.5 }}
+              className={`grid md:grid-cols-[180px_1fr] gap-4 md:gap-8 py-7 border-t border-border ${
+                index === experiences.length - 1 ? "border-b" : ""
+              }`}
             >
-              {experiences.map((exp, index) => (
-                <motion.div
-                  key={index}
-                  className="min-w-full px-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="bg-gradient-to-br from-gray-900/80 to-gray-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-700/30 h-full">
-                    <div className="flex flex-col h-full">
-                      <div className="mb-6">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="bg-blue-900/30 rounded-full p-2">
-                            <Calendar className="h-5 w-5 text-blue-400" />
-                          </div>
-                          <span className="text-sm font-medium text-blue-400">{t(exp.periodKey)}</span>
-                        </div>
-
-                        <div className="flex items-start gap-3 mb-2">
-                          <div className="bg-indigo-900/30 rounded-full p-2 mt-1">
-                            <Briefcase className="h-5 w-5 text-indigo-400" />
-                          </div>
-                          <div>
-                            <h3 className="text-2xl font-bold text-white font-heading mb-1">{t(exp.companyKey)}</h3>
-                            <p className="text-lg text-indigo-400">{t(exp.roleKey)}</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      <p className="body-md text-gray-300 flex-grow">{t(exp.descriptionKey)}</p>
-
-                      <div className="mt-8 pt-4 border-t border-gray-700/50">
-                        <div className="flex items-center justify-between">
-                          <div className="text-sm text-gray-400">
-                            {index + 1} {t("exp.of")} {experiences.length}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+              <div className="text-sm font-mono text-ink-400">
+                {exp.period}
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-ink-950 font-ui mb-1">
+                  {exp.role}
+                </h3>
+                <div className="text-sm text-coral-600 font-semibold font-ui mb-2.5">
+                  {exp.company}
+                </div>
+                <p className="body-sm text-ink-600 max-w-2xl mb-3">
+                  {exp.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {exp.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="font-mono text-xs text-ink-600 bg-ink-100 px-2.5 py-1 rounded-sm"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </motion.div>
-          </div>
-
-          <div className="flex justify-center mt-8 gap-3">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={handlePrevious}
-              disabled={activeIndex === 0}
-              className="rounded-full border-gray-700 text-gray-300 hover:bg-gray-800 hover:border-blue-700 transition-all duration-300 disabled:opacity-50"
-            >
-              <ChevronLeft className="h-5 w-5" />
-              <span className="sr-only">{t("exp.prev")}</span>
-            </Button>
-
-            <div className="flex gap-2">
-              {experiences.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveIndex(index)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    activeIndex === index ? "bg-blue-500 scale-125" : "bg-gray-600 hover:bg-gray-500"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={handleNext}
-              disabled={activeIndex === experiences.length - 1}
-              className="rounded-full border-gray-700 text-gray-300 hover:bg-gray-800 hover:border-blue-700 transition-all duration-300 disabled:opacity-50"
-            >
-              <ChevronRight className="h-5 w-5" />
-              <span className="sr-only">{t("exp.next")}</span>
-            </Button>
-          </div>
+          ))}
         </div>
-      </motion.div>
+      </div>
     </section>
-  )
+  );
 }
-

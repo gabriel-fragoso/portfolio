@@ -3,48 +3,46 @@
 @tailwind utilities;
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
-  --primary: 221.2 83.2% 53.3%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 221.2 83.2% 53.3%;
-  --radius: 0.75rem;
-}
+  --ink-950: #14110f;
+  --ink-800: #2b2622;
+  --ink-600: #574f49;
+  --ink-400: #948a81;
+  --ink-200: #ddd5cc;
+  --ink-100: #efeae4;
+  --paper: #fffbf7;
+  --white: #ffffff;
 
-.dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 217.2 91.2% 59.8%;
-  --primary-foreground: 222.2 47.4% 11.2%;
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 224.3 76.3% 48%;
+  --coral-50: #ffefec;
+  --coral-100: #ffd9d1;
+  --coral-300: #ff9683;
+  --coral-500: #ff5d4a;
+  --coral-600: #e24732;
+  --coral-700: #b8351f;
+
+  --sun-100: #fff3d6;
+  --sun-400: #ffc942;
+  --sun-600: #e8a800;
+
+  --background: 24 100% 99%;
+  --foreground: 20 12% 8%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 12% 8%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 12% 8%;
+  --primary: 8 100% 63%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 40 100% 63%;
+  --secondary-foreground: 20 12% 8%;
+  --muted: 30 20% 92%;
+  --muted-foreground: 24 8% 34%;
+  --accent: 8 100% 96%;
+  --accent-foreground: 8 100% 45%;
+  --destructive: 358 82% 61%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 30 20% 86%;
+  --input: 30 20% 86%;
+  --ring: 8 100% 63%;
+  --radius: 10px;
 }
 
 @layer base {
@@ -60,15 +58,17 @@
   h4,
   h5,
   h6 {
-    @apply font-heading tracking-tight;
+    @apply font-display tracking-tight;
   }
   p,
   li,
   span,
   input,
-  textarea,
-  button {
+  textarea {
     @apply font-body;
+  }
+  button {
+    @apply font-ui;
   }
 }
 
@@ -77,8 +77,8 @@ html {
 }
 
 body {
-  background: linear-gradient(to bottom, #000, #111827, #000);
-  color: #fff;
+  background: var(--paper);
+  color: var(--ink-950);
   font-feature-settings: "rlig" 1, "calt" 1;
 }
 
@@ -88,49 +88,38 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #111827;
+  background: var(--ink-100);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2563eb;
+  background: var(--coral-500);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1d4ed8;
+  background: var(--coral-600);
 }
 
-/* Gradient text animation */
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+/* Typography */
+.eyebrow {
+  @apply inline-flex items-center rounded-full bg-coral-50 px-4 py-1.5 text-sm font-medium text-coral-600;
+  font-family: var(--font-ui);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient-shift 5s ease infinite;
-}
-
-/* Typography enhancements */
 .heading-xl {
-  @apply text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight;
+  @apply text-4xl sm:text-5xl lg:text-6xl font-medium leading-[0.95];
   letter-spacing: -0.02em;
 }
 
 .heading-lg {
-  @apply text-3xl md:text-4xl font-bold;
+  @apply text-3xl md:text-4xl font-medium leading-tight;
   letter-spacing: -0.01em;
 }
 
 .heading-md {
-  @apply text-2xl font-bold;
+  @apply text-2xl font-medium leading-tight;
   letter-spacing: -0.01em;
 }
 
@@ -145,4 +134,3 @@ body {
 .body-sm {
   @apply text-sm leading-relaxed;
 }
-
