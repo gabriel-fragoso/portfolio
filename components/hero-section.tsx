@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import { Code2, MapPin } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export function HeroSection() {
   return (
@@ -78,7 +78,7 @@ export function HeroSection() {
           >
             <div className="relative w-full max-w-md aspect-square mx-auto">
               <Image
-                src="/placeholder-user.png"
+                src="/gabriel-fragoso.jpeg"
                 alt="Gabriel Fragoso"
                 fill
                 className="rounded-surface object-cover shadow-md"
