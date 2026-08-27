@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
+import { ProjectFlipCard } from "@/components/project-flip-card";
 
 type Product = {
   name: string;
@@ -15,13 +14,12 @@ type Product = {
 
 const products: Product[] = [
   {
-    name: "Doveon",
-    role: "Co-founder · Head of Product & Design",
+    name: "Feedget",
+    role: "B2B SaaS",
     description:
-      "Software engineering without borders: on-demand squads and in-house products, operating in Brazil, the US, and Spain.",
-    logo: "https://www.doveon.com.br/DOVEON-LOGO.FT.png",
-    logoOnDark: true,
-    url: "https://www.doveon.com.br/",
+      "Smart feedback widget that collects, analyzes, and turns user opinions into product insights.",
+    logo: null,
+    url: "https://feedget.io/",
   },
   {
     name: "Vai Anotando",
@@ -32,12 +30,45 @@ const products: Product[] = [
     url: "https://www.vaianotando.com.br/",
   },
   {
-    name: "Feedget",
-    role: "B2B SaaS",
+    name: "Narrio",
+    role: "Co-founder · Head of Tech",
     description:
-      "Smart feedback widget that collects, analyzes, and turns user opinions into product insights.",
+      "B2B event intelligence platform that captures live sales conversations and turns them into qualified leads and CRM data.",
+    logo: "https://narrio.com.br/narrio_logo_new.png",
+    url: "https://narrio.com.br/",
+  },
+  {
+    name: "Growth Mentor",
+    role: "Co-founder · Head of Tech",
+    description:
+      "Demand generation SaaS that unifies ICP discovery, lead prospecting, content, and multi-channel outreach in one system.",
+    logo: "https://growthmentor.com.br/assets/logo-closed-BrOp-PfJ.png",
+    url: "https://growthmentor.com.br/",
+  },
+  {
+    name: "RevHouse",
+    role: "Co-founder · Head of Tech",
+    description:
+      "GTM execution service that builds complete B2B sales operations in 90 days: strategy, tech stack, demand gen, and training.",
     logo: null,
-    url: "https://feedget.io/",
+    url: "https://revhouse.com.br/",
+  },
+  {
+    name: "Rezistro",
+    role: "Head of Tech",
+    description:
+      "Trademark registration in Brazil and abroad, with personalized support through the whole process.",
+    logo: "https://rezistro.com.br/wp-content/uploads/2024/11/logo-rezistro.png",
+    url: "https://rezistro.com.br/",
+  },
+  {
+    name: "Doveon",
+    role: "Co-founder · Head of Product & Design",
+    description:
+      "Software engineering without borders: on-demand squads and in-house products, operating in Brazil, the US, and Spain.",
+    logo: "https://www.doveon.com.br/DOVEON-LOGO.FT.png",
+    logoOnDark: true,
+    url: "https://www.doveon.com.br/",
   },
 ];
 
@@ -73,45 +104,18 @@ export function ProductsSection() {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ y: -4 }}
             >
-              <Link
-                href={product.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col gap-4 h-full bg-paper border border-border rounded-card p-7 transition-shadow hover:shadow-md"
-              >
-                <div className="h-9 flex items-center">
-                  {product.logo ? (
-                    <div
-                      className={
-                        product.logoOnDark
-                          ? "relative h-9 w-32 bg-ink-950 rounded-md p-1.5"
-                          : "relative h-9 w-32"
-                      }
-                    >
-                      <Image
-                        src={product.logo}
-                        alt={product.name}
-                        fill
-                        className="object-contain object-left"
-                        unoptimized
-                      />
-                    </div>
-                  ) : (
-                    <span className="font-display text-2xl text-ink-950 uppercase">
-                      {product.name}
-                    </span>
-                  )}
-                </div>
-                <h3 className="text-lg font-semibold text-ink-950 font-ui">
-                  {product.name}
-                </h3>
-                <p className="body-sm text-ink-600 flex-1">
-                  {product.description}
-                </p>
-                <div className="text-xs font-mono text-coral-600">
-                  {product.role}
-                </div>
-              </Link>
+              <ProjectFlipCard
+                name={product.name}
+                description={product.description}
+                logo={product.logo}
+                logoOnDark={product.logoOnDark}
+                url={product.url}
+                footer={
+                  <div className="text-xs font-mono text-coral-600">
+                    {product.role}
+                  </div>
+                }
+              />
             </motion.div>
           ))}
         </div>

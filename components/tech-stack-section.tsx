@@ -45,7 +45,7 @@ export function TechStackSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="eyebrow mb-4"
+          className="eyebrow mb-4 !bg-white/10"
           style={{ color: "var(--sun-400)" }}
         >
           Stack

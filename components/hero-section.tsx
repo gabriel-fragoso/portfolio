@@ -48,10 +48,11 @@ export function HeroSection() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
               >
-                Co-founder and Head of Product &amp; Design at Doveon. I build
-                interfaces and systems for products like Vai Anotando and
-                Feedget, from first draft to launch, across Brazil, the US,
-                and Spain.
+                Building Feedget, a smart feedback widget that turns user
+                opinions into product insights. Alongside it, I&apos;ve
+                co-founded and led tech for products like Vai Anotando,
+                Narrio, Growth Mentor, and RevHouse, from first draft to
+                launch, across Brazil, the US, and Spain.
               </motion.p>
             </div>
 

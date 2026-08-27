@@ -1,10 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ProjectFlipCard } from "@/components/project-flip-card";
 
 type App = {
   name: string;
@@ -36,13 +34,17 @@ const apps: App[] = [
   },
 ];
 
-const filters = ["All", "Products", "Web Apps"] as const;
+// Free / open-source apps and systems. Add new entries here as they ship.
+const openSourceApps: App[] = [];
+
+const filters = ["All", "Products", "Web Apps", "Open Source"] as const;
 type Filter = (typeof filters)[number];
 
 export function AppsGrid() {
   const [filter, setFilter] = useState<Filter>("All");
 
-  const filteredApps = apps.filter(
+  const allApps = [...apps, ...openSourceApps];
+  const filteredApps = allApps.filter(
     (app) => filter === "All" || app.chips.includes(filter)
   );
 
@@ -67,67 +69,54 @@ export function AppsGrid() {
         {filteredApps.length} project{filteredApps.length === 1 ? "" : "s"}
       </div>
 
-      <div className="grid md:grid-cols-3 gap-5">
-        {filteredApps.map((app, index) => (
-          <motion.div
-            key={app.name}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.08, duration: 0.5 }}
-            whileHover={{ y: -4 }}
-            className="bg-white border border-border rounded-card shadow-sm p-6 flex flex-col gap-3.5"
-          >
-            <div className="flex justify-between items-start">
-              <div className="relative h-10 w-32">
-                {app.icon ? (
-                  <Image
-                    src={app.icon}
-                    alt={app.name}
-                    fill
-                    className="object-contain object-left"
-                    unoptimized
-                  />
-                ) : (
-                  <span className="font-display text-xl text-coral-500 uppercase">
-                    {app.name}
-                  </span>
-                )}
-              </div>
-            </div>
-            <h3 className="text-lg font-semibold text-ink-950 font-ui">
-              {app.name}
-            </h3>
-            <div className="text-sm font-medium text-ink-400 -mt-2">
-              {app.tag}
-            </div>
-            <p className="body-sm text-ink-600 flex-1">{app.description}</p>
-            <div className="flex flex-wrap gap-2">
-              {app.chips.map((chip, i) => (
-                <span
-                  key={chip}
-                  className={`font-mono text-xs px-2.5 py-1 rounded-sm ${
-                    i === 0
-                      ? "bg-coral-50 text-coral-600"
-                      : "bg-ink-100 text-ink-600"
-                  }`}
-                >
-                  {chip}
-                </span>
-              ))}
-            </div>
-            <Link
-              href={app.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold font-ui text-coral-600 hover:text-coral-700 transition-colors"
+      {filteredApps.length > 0 ? (
+        <div className="grid md:grid-cols-3 gap-5">
+          {filteredApps.map((app, index) => (
+            <motion.div
+              key={app.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08, duration: 0.5 }}
+              whileHover={{ y: -4 }}
             >
-              <ExternalLink className="h-3.5 w-3.5" />
-              Visit
-            </Link>
-          </motion.div>
-        ))}
-      </div>
+              <ProjectFlipCard
+                name={app.name}
+                description={app.description}
+                logo={app.icon}
+                url={app.url}
+                minHeight="min-h-[20rem]"
+                footer={
+                  <>
+                    <div className="text-sm font-medium text-ink-400">
+                      {app.tag}
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {app.chips.map((chip, i) => (
+                        <span
+                          key={chip}
+                          className={`font-mono text-xs px-2.5 py-1 rounded-sm ${
+                            i === 0
+                              ? "bg-coral-50 text-coral-600"
+                              : "bg-ink-100 text-ink-600"
+                          }`}
+                        >
+                          {chip}
+                        </span>
+                      ))}
+                    </div>
+                  </>
+                }
+              />
+            </motion.div>
+          ))}
+        </div>
+      ) : (
+        <div className="border border-dashed border-border rounded-card p-10 text-center text-sm text-ink-400 font-ui">
+          Nothing here yet — free and open-source projects will show up in
+          this category as they ship.
+        </div>
+      )}
     </div>
   );
 }
