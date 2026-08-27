@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ProjectFlipCard } from "@/components/project-flip-card";
+import { motion } from "framer-motion";
 
 type Product = {
   name: string;
@@ -60,15 +60,6 @@ const products: Product[] = [
       "Trademark registration in Brazil and abroad, with personalized support through the whole process.",
     logo: "https://rezistro.com.br/wp-content/uploads/2024/11/logo-rezistro.png",
     url: "https://rezistro.com.br/",
-  },
-  {
-    name: "Doveon",
-    role: "Co-founder · Head of Product & Design",
-    description:
-      "Software engineering without borders: on-demand squads and in-house products, operating in Brazil, the US, and Spain.",
-    logo: "https://www.doveon.com.br/DOVEON-LOGO.FT.png",
-    logoOnDark: true,
-    url: "https://www.doveon.com.br/",
   },
 ];
 
