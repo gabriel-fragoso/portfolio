@@ -19,7 +19,7 @@ const products: Product[] = [
     description:
       "Smart feedback widget that collects, analyzes, and turns user opinions into product insights.",
     logo: null,
-    url: "https://feedget.io/",
+    url: "https://feedget.com.br/",
   },
   {
     name: "Vai Anotando",

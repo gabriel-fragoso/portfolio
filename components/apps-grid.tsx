@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
 import { ProjectFlipCard } from "@/components/project-flip-card";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 type App = {
   name: string;
@@ -30,7 +30,7 @@ const apps: App[] = [
       "Smart feedback widget that collects, analyzes, and turns user opinions into product insights.",
     icon: null,
     chips: ["Products", "SaaS", "TypeScript"],
-    url: "https://feedget.io/",
+    url: "https://feedget.com.br/",
   },
 ];
 
