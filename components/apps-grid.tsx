@@ -32,6 +32,15 @@ const apps: App[] = [
     chips: ["Products", "SaaS", "TypeScript"],
     url: "https://feedget.com.br/",
   },
+  {
+    name: "Boi na Mão",
+    tag: "App",
+    description:
+      "Boi na Mão app. Learn more at boinamao.gabrielfragoso.com.",
+    icon: null,
+    chips: ["Web Apps"],
+    url: "https://boinamao.gabrielfragoso.com/conheca",
+  },
 ];
 
 // Free / open-source apps and systems. Add new entries here as they ship.
