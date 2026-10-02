@@ -4,6 +4,7 @@ import { Antonio, Fustat, Poppins, Inconsolata } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { Analytics } from "@vercel/analytics/react";
+import { KEYWORDS, PERSON, SITE_DESCRIPTION, SITE_URL } from "@/lib/site";
 
 // Condensed display face for big, punchy headlines
 const antonio = Antonio({
@@ -38,10 +39,44 @@ const inconsolata = Inconsolata({
 });
 
 export const metadata: Metadata = {
-  title: "Gabriel Fragoso | Full Stack Developer",
-  description:
-    "Portfolio pessoal de Gabriel Fragoso, Desenvolvedor Full Stack com experiência em React, Next.js, Node.js e mais.",
-  generator: "v0.dev",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default:
+      "Gabriel Fragoso | Desenvolvedor Full Stack Freelancer (Sob Demanda)",
+    template: "%s | Gabriel Fragoso",
+  },
+  description: SITE_DESCRIPTION,
+  keywords: KEYWORDS,
+  applicationName: "Gabriel Fragoso",
+  authors: [{ name: PERSON.name, url: SITE_URL }],
+  creator: PERSON.name,
+  publisher: PERSON.name,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: SITE_URL,
+    siteName: "Gabriel Fragoso",
+    title: "Gabriel Fragoso | Desenvolvedor Full Stack Freelancer",
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gabriel Fragoso | Desenvolvedor Full Stack Freelancer",
+    description: SITE_DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  category: "technology",
 };
 
 export default function RootLayout({

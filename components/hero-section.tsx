@@ -28,7 +28,7 @@ export function HeroSection() {
                 className="eyebrow"
               >
                 <Code2 className="h-3.5 w-3.5 mr-1.5" />
-                Full-Stack Developer
+                Desenvolvedor Full Stack Freelancer
               </motion.div>
 
               <motion.h1
@@ -48,7 +48,7 @@ export function HeroSection() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
               >
-                Building Feedget, a smart feedback widget that turns user
+                Freelance full stack developer available on demand for MVPs, SaaS, and web systems. Building Feedget, a smart feedback widget that turns user
                 opinions into product insights. Alongside it, I&apos;ve
                 co-founded and led tech for products like Vai Anotando,
                 Narrio, Growth Mentor, and RevHouse, from first draft to
@@ -80,7 +80,9 @@ export function HeroSection() {
             <div className="relative w-full max-w-md aspect-square mx-auto">
               <Image
                 src="/gabriel-fragoso.jpeg"
-                alt="Gabriel Fragoso"
+                alt="Gabriel Fragoso, desenvolvedor full stack freelancer"
+                priority
+                sizes="(min-width: 1024px) 28rem, 100vw"
                 fill
                 className="rounded-surface object-cover shadow-md"
               />
