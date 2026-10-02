@@ -39,7 +39,7 @@ const apps: App[] = [
       "Boi na Mão app. Learn more at boinamao.gabrielfragoso.com.",
     icon: null,
     chips: ["Web Apps"],
-    url: "https://boinamao.gabrielfragoso.com/conheca",
+    url: "https://boinamao.gabrielfragoso.com",
   },
 ];
 
