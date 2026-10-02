@@ -8,11 +8,11 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { name: "Home", href: SITE_URL },
-  { name: "Products", href: `${SITE_URL}/#products` },
-  { name: "Experience", href: `${SITE_URL}/#experience` },
+  { name: "Início", href: SITE_URL },
+  { name: "Produtos", href: `${SITE_URL}/#products` },
+  { name: "Experiência", href: `${SITE_URL}/#experience` },
   { name: "Apps", href: APPS_URL },
-  { name: "Contact", href: `${SITE_URL}/#contact` },
+  { name: "Contato", href: `${SITE_URL}/#contact` },
 ];
 
 export function Navbar() {
@@ -61,7 +61,7 @@ export function Navbar() {
                 </Link>
               ))}
               <Button asChild size="sm">
-                <Link href="/#contact">Get in touch</Link>
+                <Link href="/#contact">Fale comigo</Link>
               </Button>
             </nav>
 

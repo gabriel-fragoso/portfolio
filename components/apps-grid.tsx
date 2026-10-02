@@ -3,58 +3,17 @@
 import { ProjectFlipCard } from "@/components/project-flip-card";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { appsList, type App } from "@/lib/apps";
 
-type App = {
-  name: string;
-  tag: string;
-  description: string;
-  icon: string | null;
-  chips: string[];
-  url: string;
-};
-
-const apps: App[] = [
-  {
-    name: "Vai Anotando",
-    tag: "Digital menu for restaurants",
-    description:
-      "Digital menu for restaurants to sell directly through WhatsApp, with no per-order commission. 20+ active businesses.",
-    icon: "https://www.vaianotando.com.br/logo/texto-logo.png",
-    chips: ["Web Apps", "Next.js", "WhatsApp"],
-    url: "https://www.vaianotando.com.br/",
-  },
-  {
-    name: "Feedget",
-    tag: "Feedback widget for products",
-    description:
-      "Smart feedback widget that collects, analyzes, and turns user opinions into product insights.",
-    icon: null,
-    chips: ["Products", "SaaS", "TypeScript"],
-    url: "https://feedget.com.br/",
-  },
-  {
-    name: "Boi na Mão",
-    tag: "App",
-    description:
-      "Boi na Mão app. Learn more at boinamao.gabrielfragoso.com.",
-    icon: null,
-    chips: ["Web Apps"],
-    url: "https://boinamao.gabrielfragoso.com",
-  },
-];
-
-// Free / open-source apps and systems. Add new entries here as they ship.
-const openSourceApps: App[] = [];
-
-const filters = ["All", "Products", "Web Apps", "Open Source"] as const;
+const filters = ["Todos", "Produtos", "Web Apps", "Open Source"] as const;
 type Filter = (typeof filters)[number];
 
 export function AppsGrid() {
-  const [filter, setFilter] = useState<Filter>("All");
+  const [filter, setFilter] = useState<Filter>("Todos");
 
-  const allApps = [...apps, ...openSourceApps];
+  const allApps = appsList;
   const filteredApps = allApps.filter(
-    (app) => filter === "All" || app.chips.includes(filter)
+    (app) => filter === "Todos" || app.chips.includes(filter)
   );
 
   return (
@@ -75,7 +34,7 @@ export function AppsGrid() {
         ))}
       </div>
       <div className="text-sm font-ui text-ink-400 mb-6">
-        {filteredApps.length} project{filteredApps.length === 1 ? "" : "s"}
+        {filteredApps.length} projeto{filteredApps.length === 1 ? "" : "s"}
       </div>
 
       {filteredApps.length > 0 ? (
@@ -122,8 +81,8 @@ export function AppsGrid() {
         </div>
       ) : (
         <div className="border border-dashed border-border rounded-card p-10 text-center text-sm text-ink-400 font-ui">
-          Nothing here yet — free and open-source projects will show up in
-          this category as they ship.
+          Nada por aqui ainda — projetos gratuitos e open source aparecerão
+          nesta categoria conforme forem lançados.
         </div>
       )}
     </div>

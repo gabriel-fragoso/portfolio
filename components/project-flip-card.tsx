@@ -91,7 +91,7 @@ export function ProjectFlipCard({
           >
             <span className="inline-flex items-center gap-1.5 text-sm font-semibold font-ui text-paper">
               <ExternalLink className="h-3.5 w-3.5" />
-              Visit {name}
+              Visitar {name}
             </span>
           </Link>
         </div>
