@@ -48,10 +48,10 @@ export function TechStackSection() {
           className="eyebrow mb-4 !bg-white/10"
           style={{ color: "var(--sun-400)" }}
         >
-          Stack
+          Tecnologias
         </motion.div>
         <h2 className="heading-lg text-paper max-w-xl mb-14 uppercase">
-          Everyday tools.
+          Ferramentas do dia a dia.
         </h2>
 
         <motion.div

@@ -5,10 +5,10 @@ import { APPS_URL, SITE_URL } from "@/lib/site";
 import { motion } from "framer-motion";
 
 const footerLinks = [
-  { name: "Products", href: `${SITE_URL}/#products` },
-  { name: "Experience", href: `${SITE_URL}/#experience` },
+  { name: "Produtos", href: `${SITE_URL}/#products` },
+  { name: "Experiência", href: `${SITE_URL}/#experience` },
   { name: "Apps", href: APPS_URL },
-  { name: "Contact", href: `${SITE_URL}/#contact` },
+  { name: "Contato", href: `${SITE_URL}/#contact` },
 ];
 
 export function Footer() {

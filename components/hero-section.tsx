@@ -37,9 +37,9 @@ export function HeroSection() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
               >
-                Product and code,
+                Produto e código,
                 <br />
-                from zero to production.
+                do zero à produção.
               </motion.h1>
 
               <motion.p
@@ -48,11 +48,13 @@ export function HeroSection() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
               >
-                Freelance full stack developer available on demand for MVPs, SaaS, and web systems. Building Feedget, a smart feedback widget that turns user
-                opinions into product insights. Alongside it, I&apos;ve
-                co-founded and led tech for products like Vai Anotando,
-                Narrio, Growth Mentor, and RevHouse, from first draft to
-                launch, across Brazil, the US, and Spain.
+                Desenvolvedor full stack freelancer, disponível sob demanda para
+                MVPs, SaaS e sistemas web. Construindo o Feedget, um widget
+                de feedback inteligente que transforma a opinião dos usuários
+                em insights de produto. Além dele, fui co-fundador e liderei
+                a tecnologia de produtos como Vai Anotando, Narrio, Growth
+                Mentor e RevHouse, do primeiro rascunho ao lançamento, no
+                Brasil, nos EUA e na Espanha.
               </motion.p>
             </div>
 
@@ -63,10 +65,10 @@ export function HeroSection() {
               transition={{ delay: 0.7, duration: 0.8 }}
             >
               <Button asChild size="lg" className="px-6">
-                <Link href="#products">See products</Link>
+                <Link href="#products">Ver produtos</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="px-6">
-                <Link href="#contact">Get in touch</Link>
+                <Link href="#contact">Fale comigo</Link>
               </Button>
             </motion.div>
           </motion.div>
@@ -89,7 +91,7 @@ export function HeroSection() {
 
               <div className="absolute -bottom-6 -left-6 bg-white border border-border rounded-card shadow-md px-5 py-3.5 flex items-center gap-2.5 font-ui text-sm font-semibold text-ink-950">
                 <MapPin className="h-3.5 w-3.5 text-coral-500" />
-                Brazil · US · Spain
+                Brasil · EUA · Espanha
               </div>
             </div>
           </motion.div>

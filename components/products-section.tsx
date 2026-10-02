@@ -15,49 +15,49 @@ type Product = {
 const products: Product[] = [
   {
     name: "Feedget",
-    role: "B2B SaaS",
+    role: "SaaS B2B",
     description:
-      "Smart feedback widget that collects, analyzes, and turns user opinions into product insights.",
+      "Widget de feedback inteligente que coleta, analisa e transforma a opinião dos usuários em insights de produto.",
     logo: null,
     url: "https://feedget.com.br/",
   },
   {
     name: "Vai Anotando",
-    role: "Micro-SaaS · Vai line (Doveon)",
+    role: "Micro-SaaS · Linha Vai (Doveon)",
     description:
-      "Digital menu for restaurants to sell directly through WhatsApp, with no per-order commission. 20+ active businesses.",
+      "Cardápio digital para restaurantes venderem direto pelo WhatsApp, sem comissão por pedido. Mais de 20 negócios ativos.",
     logo: "https://www.vaianotando.com.br/logo/texto-logo.png",
     url: "https://www.vaianotando.com.br/",
   },
   {
     name: "Narrio",
-    role: "Co-founder · Head of Tech",
+    role: "Co-fundador · Head de Tecnologia",
     description:
-      "B2B event intelligence platform that captures live sales conversations and turns them into qualified leads and CRM data.",
+      "Plataforma B2B de inteligência para eventos que captura conversas de vendas ao vivo e as transforma em leads qualificados e dados de CRM.",
     logo: "https://narrio.com.br/narrio_logo_new.png",
     url: "https://narrio.com.br/",
   },
   {
     name: "Growth Mentor",
-    role: "Co-founder · Head of Tech",
+    role: "Co-fundador · Head de Tecnologia",
     description:
-      "Demand generation SaaS that unifies ICP discovery, lead prospecting, content, and multi-channel outreach in one system.",
+      "SaaS de geração de demanda que reúne descoberta de ICP, prospecção de leads, conteúdo e abordagem multicanal em um só sistema.",
     logo: "https://growthmentor.com.br/assets/logo-closed-BrOp-PfJ.png",
     url: "https://growthmentor.com.br/",
   },
   {
     name: "RevHouse",
-    role: "Co-founder · Head of Tech",
+    role: "Co-fundador · Head de Tecnologia",
     description:
-      "GTM execution service that builds complete B2B sales operations in 90 days: strategy, tech stack, demand gen, and training.",
+      "Serviço de execução de GTM que monta operações completas de vendas B2B em 90 dias: estratégia, stack de tecnologia, geração de demanda e treinamento.",
     logo: null,
     url: "https://revhouse.com.br/",
   },
   {
     name: "Rezistro",
-    role: "Head of Tech",
+    role: "Head de Tecnologia",
     description:
-      "Trademark registration in Brazil and abroad, with personalized support through the whole process.",
+      "Registro de marcas no Brasil e no exterior, com acompanhamento personalizado em todo o processo.",
     logo: "https://rezistro.com.br/wp-content/uploads/2024/11/logo-rezistro.png",
     url: "https://rezistro.com.br/",
   },
@@ -78,10 +78,10 @@ export function ProductsSection() {
             transition={{ duration: 0.6 }}
             className="eyebrow mb-4"
           >
-            Products
+            Produtos
           </motion.div>
           <h2 className="heading-lg text-ink-950 max-w-xl uppercase">
-            Where my work is live.
+            Onde meu trabalho está no ar.
           </h2>
         </div>
 

@@ -5,15 +5,15 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { appsList, type App } from "@/lib/apps";
 
-const filters = ["All", "Products", "Web Apps", "Open Source"] as const;
+const filters = ["Todos", "Produtos", "Web Apps", "Open Source"] as const;
 type Filter = (typeof filters)[number];
 
 export function AppsGrid() {
-  const [filter, setFilter] = useState<Filter>("All");
+  const [filter, setFilter] = useState<Filter>("Todos");
 
   const allApps = appsList;
   const filteredApps = allApps.filter(
-    (app) => filter === "All" || app.chips.includes(filter)
+    (app) => filter === "Todos" || app.chips.includes(filter)
   );
 
   return (
@@ -34,7 +34,7 @@ export function AppsGrid() {
         ))}
       </div>
       <div className="text-sm font-ui text-ink-400 mb-6">
-        {filteredApps.length} project{filteredApps.length === 1 ? "" : "s"}
+        {filteredApps.length} projeto{filteredApps.length === 1 ? "" : "s"}
       </div>
 
       {filteredApps.length > 0 ? (
@@ -81,8 +81,8 @@ export function AppsGrid() {
         </div>
       ) : (
         <div className="border border-dashed border-border rounded-card p-10 text-center text-sm text-ink-400 font-ui">
-          Nothing here yet — free and open-source projects will show up in
-          this category as they ship.
+          Nada por aqui ainda — projetos gratuitos e open source aparecerão
+          nesta categoria conforme forem lançados.
         </div>
       )}
     </div>

@@ -72,10 +72,10 @@ export default function AppsPage() {
           Apps
         </div>
         <h1 className="heading-xl text-ink-950 uppercase mb-4">
-          Stuff I&apos;ve built.
+          O que eu já construí.
         </h1>
         <p className="body-lg text-ink-600 max-w-xl mb-10">
-          Every open-source project and app I ship, in one place.
+          Todos os projetos open source e apps que eu publico, em um só lugar.
         </p>
       </div>
 

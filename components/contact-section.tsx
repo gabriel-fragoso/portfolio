@@ -19,10 +19,10 @@ export function ContactSection() {
         className="container mx-auto px-6 relative z-20"
       >
         <h2 className="text-5xl font-display text-ink-950 uppercase tracking-tight mb-4">
-          Let&apos;s talk.
+          Vamos conversar.
         </h2>
         <p className="body-md text-ink-600 mb-8">
-          About a product, a project, or just to swap ideas.
+          Sobre um produto, um projeto ou só para trocar ideias.
         </p>
 
         <div className="flex flex-wrap gap-3.5 justify-center">

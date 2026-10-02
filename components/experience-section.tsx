@@ -16,31 +16,31 @@ const experiences: Experience[] = [
     role: "Tech Lead",
     company: "OfficeCom",
     description:
-      "Led frontend development for the backoffice platform and the CerteiroFC app, driving feature development with a focus on performance, stability, and scalability.",
+      "Liderei o desenvolvimento frontend da plataforma de backoffice e do app CerteiroFC, conduzindo a entrega de funcionalidades com foco em desempenho, estabilidade e escalabilidade.",
     stack: ["React", "Next.js", "TypeScript"],
   },
   {
-    period: "Apr 2024 — Mar 2026",
-    role: "Senior Software Engineer",
+    period: "Abr 2024 — Mar 2026",
+    role: "Engenheiro de Software Sênior",
     company: "Virtual Pay",
     description:
-      "Built a SaaS platform for game stores with a NestJS backend and microservices architecture. On the frontend, applied the Compound Component Pattern with Next.js, React Query, and Zustand. Also contributed to BizStore (PWA) and a Vue.js payment gateway integrated with Laravel.",
+      "Construí uma plataforma SaaS para lojas de jogos com backend em NestJS e arquitetura de microsserviços. No frontend, apliquei o Compound Component Pattern com Next.js, React Query e Zustand. Também contribuí com o BizStore (PWA) e com um gateway de pagamento em Vue.js integrado ao Laravel.",
     stack: ["NestJS", "TypeORM", "MySQL", "Next.js", "React Query"],
   },
   {
-    period: "Apr 2024 — Jul 2025",
-    role: "Senior Software Engineer",
+    period: "Abr 2024 — Jul 2025",
+    role: "Engenheiro de Software Sênior",
     company: "Ego Eimi",
     description:
-      "Worked across multiple projects as a software engineer, contributing to both frontend and backend. Frontend with Next.js, TypeScript, Tailwind CSS, and Storybook; backend with NestJS, Prisma, FastAPI (Python), Docker, and AWS, plus AI work with LangGraph and LangChain.",
+      "Atuei em vários projetos como engenheiro de software, no frontend e no backend. Frontend com Next.js, TypeScript, Tailwind CSS e Storybook; backend com NestJS, Prisma, FastAPI (Python), Docker e AWS, além de trabalhos de IA com LangGraph e LangChain.",
     stack: ["Next.js", "NestJS", "FastAPI", "LangChain", "AWS"],
   },
   {
-    period: "May 2023 — May 2024",
-    role: "Mid-Level Software Engineer",
+    period: "Mai 2023 — Mai 2024",
+    role: "Engenheiro de Software Pleno",
     company: "iTechMed",
     description:
-      "Worked across a diverse client base, focused on building dashboards for monitoring gateways and critical operations, using React, Node.js, and AWS (S3, CloudFront, Route 53).",
+      "Atendi uma base diversificada de clientes, com foco na construção de dashboards para monitoramento de gateways e operações críticas, usando React, Node.js e AWS (S3, CloudFront, Route 53).",
     stack: ["React", "Node.js", "Redux", "AWS"],
   },
 ];
@@ -57,10 +57,10 @@ export function ExperienceSection() {
             transition={{ duration: 0.6 }}
             className="eyebrow mb-4"
           >
-            Experience
+            Experiência
           </motion.div>
           <h2 className="heading-lg text-ink-950 max-w-xl uppercase">
-            The last few years, in short.
+            Os últimos anos, em resumo.
           </h2>
         </div>
 

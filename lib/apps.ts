@@ -10,27 +10,27 @@ export type App = {
 const apps: App[] = [
   {
     name: "Vai Anotando",
-    tag: "Digital menu for restaurants",
+    tag: "Cardápio digital para restaurantes",
     description:
-      "Digital menu for restaurants to sell directly through WhatsApp, with no per-order commission. 20+ active businesses.",
+      "Cardápio digital para restaurantes venderem direto pelo WhatsApp, sem comissão por pedido. Mais de 20 negócios ativos.",
     icon: "https://www.vaianotando.com.br/logo/texto-logo.png",
     chips: ["Web Apps", "Next.js", "WhatsApp"],
     url: "https://www.vaianotando.com.br/",
   },
   {
     name: "Feedget",
-    tag: "Feedback widget for products",
+    tag: "Widget de feedback para produtos",
     description:
-      "Smart feedback widget that collects, analyzes, and turns user opinions into product insights.",
+      "Widget de feedback inteligente que coleta, analisa e transforma a opinião dos usuários em insights de produto.",
     icon: null,
-    chips: ["Products", "SaaS", "TypeScript"],
+    chips: ["Produtos", "SaaS", "TypeScript"],
     url: "https://feedget.com.br/",
   },
   {
     name: "Boi na Mão",
-    tag: "App",
+    tag: "Aplicativo",
     description:
-      "Boi na Mão app. Learn more at boinamao.gabrielfragoso.com.",
+      "App Boi na Mão. Saiba mais em boinamao.gabrielfragoso.com.",
     icon: null,
     chips: ["Web Apps"],
     url: "https://boinamao.gabrielfragoso.com/conheca",
