@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { APPS_URL, SITE_URL } from "@/lib/site";
 import { motion } from "framer-motion";
 
 const footerLinks = [
-  { name: "Products", href: "/#products" },
-  { name: "Experience", href: "/#experience" },
-  { name: "Apps", href: "/apps" },
-  { name: "Contact", href: "/#contact" },
+  { name: "Products", href: `${SITE_URL}/#products` },
+  { name: "Experience", href: `${SITE_URL}/#experience` },
+  { name: "Apps", href: APPS_URL },
+  { name: "Contact", href: `${SITE_URL}/#contact` },
 ];
 
 export function Footer() {
@@ -18,7 +19,7 @@ export function Footer() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <Link
-            href="/"
+            href={SITE_URL}
             className="text-base font-display font-medium text-ink-950 uppercase"
           >
             Gabriel Fragoso
