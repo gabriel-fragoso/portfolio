@@ -51,6 +51,16 @@ const appsEn: App[] = [
     categories: ["webapps"],
     url: "https://usarachai.vercel.app/",
   },
+  {
+    name: "Growth Mentor",
+    tag: "Demand generation SaaS",
+    description:
+      "Demand generation SaaS that unifies ICP discovery, lead prospecting, content and multi-channel outreach in one system.",
+    icon: "https://growthmentor.com.br/assets/logo-closed-BrOp-PfJ.png",
+    chips: ["Product", "SaaS", "B2B"],
+    categories: ["products"],
+    url: "https://growthmentor.com.br/",
+  },
 ];
 
 const appsPt: App[] = [
@@ -76,6 +86,13 @@ const appsPt: App[] = [
     ...appsEn[3],
     tag: "Aplicativo",
     description: "App Rachaí. Use em usarachai.vercel.app.",
+  },
+  {
+    ...appsEn[4],
+    tag: "SaaS de geração de demanda",
+    description:
+      "SaaS de geração de demanda que reúne descoberta de ICP, prospecção de leads, conteúdo e abordagem multicanal em um só sistema.",
+    chips: ["Produto", "SaaS", "B2B"],
   },
 ];
 
