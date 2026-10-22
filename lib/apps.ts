@@ -35,19 +35,21 @@ const appsEn: App[] = [
   },
   {
     name: "Gado na Mão",
-    tag: "App",
-    description: "Gado na Mão app. Learn more at gadonamao.gabrielfragoso.com.",
+    tag: "Farm and feedlot management",
+    description:
+      "Cattle farm and feedlot management app: daily feeding, weigh-ins, cost per arroba, team service orders and farm finances in one place, working even without internet.",
     icon: null,
-    chips: ["Web App"],
+    chips: ["Web App", "Offline-first"],
     categories: ["webapps"],
     url: "https://gadonamao.gabrielfragoso.com",
   },
   {
     name: "Rachaí",
-    tag: "App",
-    description: "Rachaí app. Try it at usarachai.vercel.app.",
+    tag: "Bill splitting",
+    description:
+      "Splits the bill and settles up over Pix. No spreadsheet and no sign-up: create a split, share it in the group, and Rachaí tells who pays whom.",
     icon: null,
-    chips: ["Web App"],
+    chips: ["Web App", "Pix"],
     categories: ["webapps"],
     url: "https://usarachai.vercel.app/",
   },
@@ -79,13 +81,16 @@ const appsPt: App[] = [
   },
   {
     ...appsEn[2],
-    tag: "Aplicativo",
-    description: "App Gado na Mão. Saiba mais em gadonamao.gabrielfragoso.com.",
+    tag: "Gestão de fazenda e confinamento",
+    description:
+      "App de gestão de fazenda e confinamento de gado de corte: trato do dia, pesagem, custo da arroba, ordens de serviço da equipe e financeiro num só lugar, funcionando até sem internet.",
+    chips: ["Web App", "Funciona offline"],
   },
   {
     ...appsEn[3],
-    tag: "Aplicativo",
-    description: "App Rachaí. Use em usarachai.vercel.app.",
+    tag: "Divisão de contas",
+    description:
+      "Divide a conta do rolê e acerta tudo no Pix. Sem planilha e sem cadastro: cria o racha, manda no grupo e o Rachaí diz quem paga quem.",
   },
   {
     ...appsEn[4],
