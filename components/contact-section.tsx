@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mail, ExternalLink, MessageCircle } from "lucide-react";
+import { Mail, ExternalLink, MessageCircle, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { content } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
@@ -44,6 +44,16 @@ export function ContactSection({ locale }: { locale: Locale }) {
             >
               <MessageCircle className="h-4 w-4 mr-2" />
               {t.whatsapp}
+            </Link>
+          </Button>
+          <Button asChild variant="outline" size="lg" className="px-6">
+            <Link
+              href={PERSON.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Instagram className="h-4 w-4 mr-2" />
+              Instagram
             </Link>
           </Button>
           <Button asChild variant="outline" size="lg" className="px-6">

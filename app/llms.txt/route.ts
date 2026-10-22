@@ -33,6 +33,7 @@ ${t.faq.items.map((f) => `### ${f.q}\n${f.a}`).join("\n\n")}
 - Email: ${PERSON.email}
 - LinkedIn: ${PERSON.linkedin}
 - GitHub: ${PERSON.github}
+- Instagram: ${PERSON.instagram}
 - WhatsApp: ${PERSON.whatsapp}
 `;
   return new Response(body, {

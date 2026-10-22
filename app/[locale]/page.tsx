@@ -79,7 +79,7 @@ export default async function Home({
               jobTitle: PERSON.jobTitle,
               description: content.en.meta.description,
               nationality: { "@type": "Country", name: "Brazil" },
-              sameAs: [PERSON.linkedin, PERSON.github, APPS_URL],
+              sameAs: [PERSON.linkedin, PERSON.github, PERSON.instagram, APPS_URL],
               knowsLanguage: ["en", "pt-BR"],
               alumniOf: { "@type": "CollegeOrUniversity", name: "Estácio" },
               worksFor: {
@@ -114,6 +114,7 @@ export default async function Home({
               description: content.en.meta.description,
               provider: { "@id": `${SITE_URL}/#person` },
               email: PERSON.email,
+              taxID: PERSON.cnpj,
               areaServed: [
                 { "@type": "Country", name: "Brazil" },
                 { "@type": "Place", name: "Worldwide (remote)" },

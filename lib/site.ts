@@ -5,11 +5,13 @@ export const APPS_URL = "https://apps.gabrielfragoso.com";
 
 export const PERSON = {
   name: "Gabriel Fragoso",
-  email: "fragosooliveira773@gmail.com",
+  email: "hello@gabrielfragoso.com",
+  cnpj: "66.231.519/0001-99",
   phone: "+55 83 99830 4284",
   whatsapp: "https://wa.me/5583998304284",
   linkedin: "https://www.linkedin.com/in/gabriel-fragoso",
   github: "https://www.github.com/gabriel-fragoso",
+  instagram: "https://www.instagram.com/gabriel.code_",
   jobTitle: "Senior Frontend Engineer",
 };
 
