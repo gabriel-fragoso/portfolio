@@ -4,12 +4,19 @@ import { APPS_URL, SITE_URL } from "@/lib/site";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const host = (await headers()).get("host") ?? "";
-  const isApps = host.startsWith("apps.");
+  const base = host.startsWith("apps.") ? APPS_URL : SITE_URL;
   return [
     {
-      url: isApps ? APPS_URL : SITE_URL,
+      url: base,
       changeFrequency: "monthly",
       priority: 1,
+      alternates: { languages: { en: base, "pt-BR": `${base}/pt` } },
+    },
+    {
+      url: `${base}/pt`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+      alternates: { languages: { en: base, "pt-BR": `${base}/pt` } },
     },
   ];
 }

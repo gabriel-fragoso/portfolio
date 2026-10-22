@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Gabriel Fragoso | Desenvolvedor Full Stack Freelancer";
+export const alt = "Gabriel Fragoso | Senior Frontend Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -26,10 +26,10 @@ export default function OpengraphImage() {
           Gabriel Fragoso
         </div>
         <div style={{ fontSize: 48, marginTop: 16 }}>
-          Desenvolvedor Full Stack Freelancer
+          Senior Frontend Engineer
         </div>
         <div style={{ fontSize: 30, marginTop: 28, color: "#5c554f" }}>
-          MVPs · SaaS · Sistemas web · React · Next.js · Node.js
+          React · Next.js · TypeScript · Node.js · Open to remote roles
         </div>
       </div>
     ),
