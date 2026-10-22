@@ -114,6 +114,7 @@ export default async function Home({
               description: content.en.meta.description,
               provider: { "@id": `${SITE_URL}/#person` },
               email: PERSON.email,
+              taxID: PERSON.cnpj,
               areaServed: [
                 { "@type": "Country", name: "Brazil" },
                 { "@type": "Place", name: "Worldwide (remote)" },

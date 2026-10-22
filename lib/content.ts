@@ -527,7 +527,7 @@ const en: Content = {
     text: "About a role, a project, or just to swap ideas.",
     whatsapp: "WhatsApp",
   },
-  footer: { legal: "" },
+  footer: { legal: " · CNPJ 66.231.519/0001-99" },
   apps: {
     eyebrow: "Apps",
     title: "Stuff I've built.",
