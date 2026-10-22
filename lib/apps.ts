@@ -34,13 +34,22 @@ const appsEn: App[] = [
     url: "https://feedget.com.br/",
   },
   {
-    name: "Boi na Mão",
+    name: "Gado na Mão",
     tag: "App",
-    description: "Boi na Mão app. Learn more at gadonamao.gabrielfragoso.com.",
+    description: "Gado na Mão app. Learn more at gadonamao.gabrielfragoso.com.",
     icon: null,
     chips: ["Web App"],
     categories: ["webapps"],
     url: "https://gadonamao.gabrielfragoso.com",
+  },
+  {
+    name: "Rachaí",
+    tag: "App",
+    description: "Rachaí app. Try it at usarachai.vercel.app.",
+    icon: null,
+    chips: ["Web App"],
+    categories: ["webapps"],
+    url: "https://usarachai.vercel.app/",
   },
 ];
 
@@ -61,7 +70,12 @@ const appsPt: App[] = [
   {
     ...appsEn[2],
     tag: "Aplicativo",
-    description: "App Boi na Mão. Saiba mais em gadonamao.gabrielfragoso.com.",
+    description: "App Gado na Mão. Saiba mais em gadonamao.gabrielfragoso.com.",
+  },
+  {
+    ...appsEn[3],
+    tag: "Aplicativo",
+    description: "App Rachaí. Use em usarachai.vercel.app.",
   },
 ];
 

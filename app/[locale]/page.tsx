@@ -79,7 +79,7 @@ export default async function Home({
               jobTitle: PERSON.jobTitle,
               description: content.en.meta.description,
               nationality: { "@type": "Country", name: "Brazil" },
-              sameAs: [PERSON.linkedin, PERSON.github, APPS_URL],
+              sameAs: [PERSON.linkedin, PERSON.github, PERSON.instagram, APPS_URL],
               knowsLanguage: ["en", "pt-BR"],
               alumniOf: { "@type": "CollegeOrUniversity", name: "Estácio" },
               worksFor: {

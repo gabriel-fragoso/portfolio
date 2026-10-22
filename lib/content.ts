@@ -136,7 +136,7 @@ const en: Content = {
     ],
     appsTitle: "Apps and products built by Gabriel Fragoso",
     appsDescription:
-      "Apps, SaaS and digital products built by Gabriel Fragoso, Senior Frontend Engineer: Vai Anotando, Feedget, Boi na Mão and more.",
+      "Apps, SaaS and digital products built by Gabriel Fragoso, Senior Frontend Engineer: Vai Anotando, Feedget, Gado na Mão, Rachaí and more.",
   },
   nav: {
     work: "Work",
@@ -514,11 +514,11 @@ const en: Content = {
       },
       {
         q: "What products has Gabriel built?",
-        a: "Feedget (feedback platform with an embeddable widget and AI triage), VaiAnotando (digital menu for restaurants), CerteiroFC (high-traffic sports platform) and Boi na Mão. See them at apps.gabrielfragoso.com.",
+        a: "Feedget (feedback platform with an embeddable widget and AI triage), VaiAnotando (digital menu for restaurants), CerteiroFC (high-traffic sports platform) Gado na Mão and Rachaí. See them at apps.gabrielfragoso.com.",
       },
       {
         q: "How can I contact Gabriel?",
-        a: `Email ${PERSON.email}, message on LinkedIn (${PERSON.linkedin}) or WhatsApp (${PERSON.phone}).`,
+        a: `Email ${PERSON.email}, message on LinkedIn (${PERSON.linkedin}), WhatsApp (${PERSON.phone}) or Instagram (@gabriel.code_).`,
       },
     ],
   },
@@ -565,7 +565,7 @@ const pt: Content = {
     ],
     appsTitle: "Apps e produtos criados por Gabriel Fragoso",
     appsDescription:
-      "Apps, SaaS e produtos digitais criados por Gabriel Fragoso, Engenheiro Frontend Sênior: Vai Anotando, Feedget, Boi na Mão e mais.",
+      "Apps, SaaS e produtos digitais criados por Gabriel Fragoso, Engenheiro Frontend Sênior: Vai Anotando, Feedget, Gado na Mão, Rachaí e mais.",
   },
   nav: {
     work: "Trabalhos",
@@ -909,11 +909,11 @@ const pt: Content = {
       },
       {
         q: "Quais produtos o Gabriel já construiu?",
-        a: "Feedget (plataforma de feedback com widget embutível e triagem por IA), VaiAnotando (cardápio digital para restaurantes), CerteiroFC (plataforma esportiva de alto tráfego) e Boi na Mão. Veja todos em apps.gabrielfragoso.com.",
+        a: "Feedget (plataforma de feedback com widget embutível e triagem por IA), VaiAnotando (cardápio digital para restaurantes), CerteiroFC (plataforma esportiva de alto tráfego) Gado na Mão e Rachaí. Veja todos em apps.gabrielfragoso.com.",
       },
       {
         q: "Como contratar o Gabriel Fragoso?",
-        a: `Envie um e-mail para ${PERSON.email}, chame no LinkedIn (${PERSON.linkedin}) ou no WhatsApp (${PERSON.phone}) contando um pouco sobre o projeto.`,
+        a: `Envie um e-mail para ${PERSON.email}, chame no LinkedIn (${PERSON.linkedin}), no WhatsApp (${PERSON.phone}) ou no Instagram (@gabriel.code_) contando um pouco sobre o projeto.`,
       },
     ],
   },
