@@ -3,38 +3,42 @@
 import { ProjectFlipCard } from "@/components/project-flip-card";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { appsList, type App } from "@/lib/apps";
+import { appsByLocale, type AppCategory } from "@/lib/apps";
+import { content } from "@/lib/content";
+import type { Locale } from "@/lib/i18n";
 
-const filters = ["Todos", "Produtos", "Web Apps", "Open Source"] as const;
-type Filter = (typeof filters)[number];
+type Filter = "all" | AppCategory;
+const filterIds: Filter[] = ["all", "products", "webapps", "opensource"];
 
-export function AppsGrid() {
-  const [filter, setFilter] = useState<Filter>("Todos");
+export function AppsGrid({ locale }: { locale: Locale }) {
+  const [filter, setFilter] = useState<Filter>("all");
+  const t = content[locale].apps;
+  const apps = appsByLocale[locale];
 
-  const allApps = appsList;
-  const filteredApps = allApps.filter(
-    (app) => filter === "Todos" || app.chips.includes(filter)
+  const filteredApps = apps.filter(
+    (app) => filter === "all" || app.categories.includes(filter)
   );
 
   return (
     <div className="container mx-auto px-6 pb-24">
       <div className="flex gap-2.5 flex-wrap mb-4">
-        {filters.map((f) => (
+        {filterIds.map((id) => (
           <button
-            key={f}
-            onClick={() => setFilter(f)}
+            key={id}
+            onClick={() => setFilter(id)}
+            aria-pressed={filter === id}
             className={`font-ui text-sm font-semibold px-4 py-2 rounded-full border transition-colors ${
-              filter === f
+              filter === id
                 ? "bg-coral-500 text-white border-coral-500"
                 : "bg-white text-ink-600 border-border hover:bg-coral-50 hover:text-coral-600"
             }`}
           >
-            {f}
+            {t.filters[id]}
           </button>
         ))}
       </div>
       <div className="text-sm font-ui text-ink-400 mb-6">
-        {filteredApps.length} projeto{filteredApps.length === 1 ? "" : "s"}
+        {t.count(filteredApps.length)}
       </div>
 
       {filteredApps.length > 0 ? (
@@ -53,6 +57,7 @@ export function AppsGrid() {
                 description={app.description}
                 logo={app.icon}
                 url={app.url}
+                visitLabel={content[locale].work.visit}
                 minHeight="min-h-[20rem]"
                 footer={
                   <>
@@ -81,8 +86,7 @@ export function AppsGrid() {
         </div>
       ) : (
         <div className="border border-dashed border-border rounded-card p-10 text-center text-sm text-ink-400 font-ui">
-          Nada por aqui ainda — projetos gratuitos e open source aparecerão
-          nesta categoria conforme forem lançados.
+          {t.empty}
         </div>
       )}
     </div>

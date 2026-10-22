@@ -1,6 +1,9 @@
-import { SERVICES } from "@/lib/site";
+import { content } from "@/lib/content";
+import type { Locale } from "@/lib/i18n";
 
-export function ServicesSection() {
+export function ServicesSection({ locale }: { locale: Locale }) {
+  const t = content[locale].services;
+
   return (
     <section
       id="services"
@@ -9,23 +12,18 @@ export function ServicesSection() {
     >
       <div className="container mx-auto px-6">
         <div className="mb-16">
-          <div className="eyebrow mb-4">Serviços</div>
+          <div className="eyebrow mb-4">{t.eyebrow}</div>
           <h2
             id="services-title"
             className="heading-lg text-ink-950 max-w-2xl uppercase"
           >
-            Desenvolvedor freelancer sob demanda.
+            {t.title}
           </h2>
-          <p className="body-lg text-ink-600 max-w-2xl mt-5">
-            Atuo como desenvolvedor full stack freelancer para empresas e
-            empreendedores que precisam tirar um produto do papel, evoluir um
-            sistema existente ou reforçar o time com tecnologia, sem contratar
-            em tempo integral.
-          </p>
+          <p className="body-lg text-ink-600 max-w-2xl mt-5">{t.intro}</p>
         </div>
 
         <ul className="grid md:grid-cols-3 gap-6">
-          {SERVICES.map((service) => (
+          {t.items.map((service) => (
             <li
               key={service.name}
               className="border border-border rounded-card p-7 bg-paper"

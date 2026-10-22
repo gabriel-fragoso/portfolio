@@ -13,6 +13,7 @@ type ProjectFlipCardProps = {
   url: string;
   footer?: ReactNode;
   minHeight?: string;
+  visitLabel?: string;
 };
 
 export function ProjectFlipCard({
@@ -23,6 +24,7 @@ export function ProjectFlipCard({
   url,
   footer,
   minHeight = "min-h-[22rem]",
+  visitLabel = "Visit",
 }: ProjectFlipCardProps) {
   const [previewLoaded, setPreviewLoaded] = useState(false);
 
@@ -91,7 +93,7 @@ export function ProjectFlipCard({
           >
             <span className="inline-flex items-center gap-1.5 text-sm font-semibold font-ui text-paper">
               <ExternalLink className="h-3.5 w-3.5" />
-              Visitar {name}
+              {visitLabel} {name}
             </span>
           </Link>
         </div>

@@ -2,20 +2,24 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { APPS_URL, SITE_URL } from "@/lib/site";
+import { appsUrl, homeUrl } from "@/lib/site";
+import { content } from "@/lib/content";
+import type { Locale } from "@/lib/i18n";
+import { LanguageSwitch } from "@/components/language-switch";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const navItems = [
-  { name: "Início", href: SITE_URL },
-  { name: "Produtos", href: `${SITE_URL}/#products` },
-  { name: "Experiência", href: `${SITE_URL}/#experience` },
-  { name: "Apps", href: APPS_URL },
-  { name: "Contato", href: `${SITE_URL}/#contact` },
-];
-
-export function Navbar() {
+export function Navbar({ locale }: { locale: Locale }) {
+  const t = content[locale].nav;
+  const home = homeUrl(locale);
+  const navItems = [
+    { name: t.work, href: `${home}#work` },
+    { name: t.experience, href: `${home}#experience` },
+    { name: t.stack, href: `${home}#stack` },
+    { name: t.apps, href: appsUrl(locale) },
+    { name: t.contact, href: `${home}#contact` },
+  ];
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -43,7 +47,8 @@ export function Navbar() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link
-              href={SITE_URL}
+              href={home}
+              aria-label={t.home}
               className="text-xl font-display font-medium text-ink-950 uppercase tracking-tight"
             >
               Gabriel Fragoso
@@ -60,13 +65,15 @@ export function Navbar() {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-coral-500 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
+              <LanguageSwitch locale={locale} label={t.language} />
               <Button asChild size="sm">
-                <Link href="/#contact">Fale comigo</Link>
+                <Link href={`${home}#contact`}>{t.cta}</Link>
               </Button>
             </nav>
 
             <button
               className="md:hidden text-ink-600 hover:text-ink-950"
+              aria-label={t.openMenu}
               onClick={() => setIsMobileMenuOpen(true)}
             >
               <Menu className="h-6 w-6" />
@@ -87,6 +94,7 @@ export function Navbar() {
             <div className="flex justify-end p-6">
               <button
                 className="text-ink-600 hover:text-ink-950"
+                aria-label={t.closeMenu}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <X className="h-6 w-6" />
@@ -110,6 +118,7 @@ export function Navbar() {
                   </Link>
                 </motion.div>
               ))}
+              <LanguageSwitch locale={locale} label={t.language} />
             </nav>
           </motion.div>
         )}

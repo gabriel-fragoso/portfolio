@@ -1,17 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { APPS_URL, SITE_URL } from "@/lib/site";
+import { appsUrl, homeUrl } from "@/lib/site";
+import { content } from "@/lib/content";
+import type { Locale } from "@/lib/i18n";
 import { motion } from "framer-motion";
 
-const footerLinks = [
-  { name: "Produtos", href: `${SITE_URL}/#products` },
-  { name: "Experiência", href: `${SITE_URL}/#experience` },
-  { name: "Apps", href: APPS_URL },
-  { name: "Contato", href: `${SITE_URL}/#contact` },
-];
-
-export function Footer() {
+export function Footer({ locale }: { locale: Locale }) {
+  const t = content[locale];
+  const home = homeUrl(locale);
+  const footerLinks = [
+    { name: t.nav.work, href: `${home}#work` },
+    { name: t.nav.experience, href: `${home}#experience` },
+    { name: t.nav.apps, href: appsUrl(locale) },
+    { name: t.nav.contact, href: `${home}#contact` },
+  ];
   const currentYear = new Date().getFullYear();
 
   return (
@@ -19,7 +22,7 @@ export function Footer() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <Link
-            href={SITE_URL}
+            href={home}
             className="text-base font-display font-medium text-ink-950 uppercase"
           >
             Gabriel Fragoso
@@ -45,8 +48,7 @@ export function Footer() {
         </div>
 
         <div className="mt-7 text-xs font-mono text-ink-400">
-          © {currentYear} Gabriel Fragoso · CNPJ 66.231.519/0001-99 · +55 83
-          99830 4284
+          © {currentYear} Gabriel Fragoso{t.footer.legal}
         </div>
       </div>
     </footer>
