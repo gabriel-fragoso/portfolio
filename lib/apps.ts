@@ -10,6 +10,8 @@ export type App = {
   chips: string[];
   categories: AppCategory[];
   url: string;
+  /** Viewport used for the live preview on hover. Defaults to desktop. */
+  preview?: "desktop" | "mobile";
 };
 
 const appsEn: App[] = [
@@ -52,13 +54,14 @@ const appsEn: App[] = [
     chips: ["Web App", "Pix"],
     categories: ["webapps"],
     url: "https://usarachai.vercel.app/",
+    preview: "mobile",
   },
   {
     name: "Growth Mentor",
     tag: "Demand generation SaaS",
     description:
       "Demand generation SaaS that unifies ICP discovery, lead prospecting, content and multi-channel outreach in one system.",
-    icon: "https://growthmentor.com.br/assets/logo-closed-BrOp-PfJ.png",
+    icon: null,
     chips: ["Product", "SaaS", "B2B"],
     categories: ["products"],
     url: "https://growthmentor.com.br/",
