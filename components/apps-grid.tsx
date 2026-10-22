@@ -58,6 +58,7 @@ export function AppsGrid({ locale }: { locale: Locale }) {
                 logo={app.icon}
                 url={app.url}
                 visitLabel={content[locale].work.visit}
+                previewMode={app.preview}
                 minHeight="min-h-[20rem]"
                 footer={
                   <>

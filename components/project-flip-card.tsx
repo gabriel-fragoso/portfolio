@@ -14,6 +14,8 @@ type ProjectFlipCardProps = {
   footer?: ReactNode;
   minHeight?: string;
   visitLabel?: string;
+  /** Mobile-first products are previewed in a phone-sized viewport. */
+  previewMode?: "desktop" | "mobile";
 };
 
 export function ProjectFlipCard({
@@ -25,8 +27,10 @@ export function ProjectFlipCard({
   footer,
   minHeight = "min-h-[22rem]",
   visitLabel = "Visit",
+  previewMode = "desktop",
 }: ProjectFlipCardProps) {
   const [previewLoaded, setPreviewLoaded] = useState(false);
+  const [logoFailed, setLogoFailed] = useState(false);
 
   const linkProps = {
     href: url,
@@ -46,7 +50,7 @@ export function ProjectFlipCard({
           className="absolute inset-0 flex flex-col gap-4 h-full bg-paper border border-border rounded-card p-7 [backface-visibility:hidden]"
         >
           <div className="h-9 flex items-center">
-            {logo ? (
+            {logo && !logoFailed ? (
               <div
                 className={
                   logoOnDark
@@ -60,6 +64,7 @@ export function ProjectFlipCard({
                   fill
                   className="object-contain object-left"
                   unoptimized
+                  onError={() => setLogoFailed(true)}
                 />
               </div>
             ) : (
@@ -77,16 +82,28 @@ export function ProjectFlipCard({
 
         {/* Back — live preview */}
         <div className="absolute inset-0 h-full overflow-hidden rounded-card border border-border bg-ink-950 [backface-visibility:hidden] [transform:rotateY(180deg)]">
-          {previewLoaded && (
-            <iframe
-              src={url}
-              title={`${name} preview`}
-              loading="lazy"
-              tabIndex={-1}
-              aria-hidden="true"
-              className="pointer-events-none w-[400%] h-[400%] origin-top-left [transform:scale(0.25)] border-0"
-            />
-          )}
+          {previewLoaded &&
+            (previewMode === "mobile" ? (
+              <div className="absolute inset-0 flex justify-center bg-ink-800">
+                <iframe
+                  src={url}
+                  title={`${name} preview`}
+                  loading="lazy"
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  className="pointer-events-none h-[700px] w-[390px] shrink-0 origin-top bg-white border-0 [transform:scale(0.8)]"
+                />
+              </div>
+            ) : (
+              <iframe
+                src={url}
+                title={`${name} preview`}
+                loading="lazy"
+                tabIndex={-1}
+                aria-hidden="true"
+                className="pointer-events-none w-[400%] h-[400%] origin-top-left [transform:scale(0.25)] border-0"
+              />
+            ))}
           <Link
             {...linkProps}
             className="absolute inset-0 flex flex-col justify-end p-5 bg-gradient-to-t from-ink-950/95 via-ink-950/10 to-transparent"
