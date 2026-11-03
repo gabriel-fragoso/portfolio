@@ -25,7 +25,13 @@ function parse(raw: string) {
   const data: Record<string, string> = {};
   for (const line of match[1].split("\n")) {
     const i = line.indexOf(":");
-    if (i > 0) data[line.slice(0, i).trim()] = line.slice(i + 1).trim();
+    if (i > 0) {
+      // Values may be wrapped in quotes (needed when they contain a colon).
+      data[line.slice(0, i).trim()] = line
+        .slice(i + 1)
+        .trim()
+        .replace(/^"(.*)"$/, "$1");
+    }
   }
   return { data, body: match[2].trim() };
 }
