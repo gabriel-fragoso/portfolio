@@ -134,3 +134,34 @@ body {
 .body-sm {
   @apply text-sm leading-relaxed;
 }
+
+/* Blog article body (rendered from Markdown) */
+.post-body {
+  @apply text-ink-800 text-lg leading-relaxed;
+}
+.post-body > * + * {
+  margin-top: 1.25rem;
+}
+.post-body h2 {
+  @apply font-display text-3xl uppercase text-ink-950 tracking-tight;
+  margin-top: 2.5rem;
+}
+.post-body h3 {
+  @apply font-ui text-xl font-semibold text-ink-950;
+  margin-top: 2rem;
+}
+.post-body a {
+  @apply text-coral-600 underline underline-offset-4 hover:text-coral-500;
+}
+.post-body ul {
+  @apply list-disc pl-6 space-y-1.5;
+}
+.post-body ol {
+  @apply list-decimal pl-6 space-y-1.5;
+}
+.post-body blockquote {
+  @apply border-l-4 border-coral-500 bg-coral-50 px-5 py-3 text-ink-600 rounded-r-card;
+}
+.post-body strong {
+  @apply font-semibold text-ink-950;
+}

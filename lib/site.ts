@@ -26,3 +26,23 @@ export const appsUrl = (locale: Locale) =>
 /** Path of the downloadable CV for the given language. */
 export const cvPath = (locale: Locale) =>
   locale === "pt" ? "/curriculo-pt.pdf" : "/curriculo-en.pdf";
+
+/** Public path of the clinics landing-pages page. */
+export const clinicsPath = (locale: Locale) =>
+  locale === "pt" ? "/pt/clinicas" : "/clinics";
+
+/** Public path of the blog index. */
+export const blogPath = (locale: Locale) =>
+  locale === "pt" ? "/pt/blog" : "/blog";
+
+export const clinicsUrl = (locale: Locale) =>
+  `${SITE_URL}${clinicsPath(locale)}`;
+
+export const blogUrl = (locale: Locale) => `${SITE_URL}${blogPath(locale)}`;
+
+export const postUrl = (locale: Locale, slug: string) =>
+  `${blogUrl(locale)}/${slug}`;
+
+/** Pre-filled WhatsApp link. */
+export const whatsappLink = (message: string) =>
+  `${PERSON.whatsapp}?text=${encodeURIComponent(message)}`;

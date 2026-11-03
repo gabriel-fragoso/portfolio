@@ -9,6 +9,8 @@ const APPS_HOST = "apps.gabrielfragoso.com";
 //   gabrielfragoso.com        /  -> /en        /pt      -> /pt
 //   apps.gabrielfragoso.com   /  -> /en/apps   /pt      -> /pt/apps
 //   any other host (dev, previews) additionally serves /apps and /pt/apps.
+//   /clinics and /blog (English) are rewritten to /en/...; Portuguese lives at
+//   /pt/clinicas and /pt/blog.
 export function middleware(request: NextRequest) {
   const host = (request.headers.get("host") ?? "").split(":")[0];
   const { pathname } = request.nextUrl;
@@ -42,9 +44,23 @@ export function middleware(request: NextRequest) {
 
   if (pathname === "/") return rewrite("/en");
   if (pathname === "/apps") return rewrite("/en/apps");
+  if (pathname === "/clinics") return rewrite("/en/clinics");
+  if (pathname === "/blog" || pathname.startsWith("/blog/")) {
+    return rewrite(`/en${pathname}`);
+  }
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/", "/apps", "/pt", "/pt/apps", "/en", "/en/:path*"],
+  matcher: [
+    "/",
+    "/apps",
+    "/pt",
+    "/pt/apps",
+    "/clinics",
+    "/blog",
+    "/blog/:slug*",
+    "/en",
+    "/en/:path*",
+  ],
 };
