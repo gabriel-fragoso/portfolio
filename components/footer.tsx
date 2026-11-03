@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { appsUrl, homeUrl } from "@/lib/site";
+import { appsUrl, blogUrl, clinicsUrl, homeUrl } from "@/lib/site";
 import { content } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
 import { motion } from "framer-motion";
@@ -12,6 +12,8 @@ export function Footer({ locale }: { locale: Locale }) {
   const footerLinks = [
     { name: t.nav.work, href: `${home}#work` },
     { name: t.nav.experience, href: `${home}#experience` },
+    { name: t.nav.clinics, href: clinicsUrl(locale) },
+    { name: t.nav.blog, href: blogUrl(locale) },
     { name: t.nav.apps, href: appsUrl(locale) },
     { name: t.nav.contact, href: `${home}#contact` },
   ];
@@ -33,7 +35,7 @@ export function Footer({ locale }: { locale: Locale }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex gap-7 text-sm font-ui"
+            className="flex flex-wrap justify-center gap-x-7 gap-y-2 text-sm font-ui"
           >
             {footerLinks.map((link) => (
               <Link

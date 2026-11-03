@@ -1,4 +1,5 @@
-import { APPS_URL, PERSON, SITE_URL } from "@/lib/site";
+import { getPosts } from "@/lib/blog";
+import { APPS_URL, PERSON, SITE_URL, blogUrl, clinicsUrl, postUrl } from "@/lib/site";
 import { content } from "@/lib/content";
 
 export const dynamic = "force-static";
@@ -14,6 +15,13 @@ export function GET() {
 - [Portfólio (Português)](${SITE_URL}/pt): the same content in Brazilian Portuguese.
 - [Apps](${APPS_URL}): products and apps built by ${PERSON.name}.
 - [CV (PDF)](${SITE_URL}/curriculo-en.pdf)
+- [Landing pages for clinics](${clinicsUrl("en")}) · [PT](${clinicsUrl("pt")})
+- [Blog](${blogUrl("en")}) · [PT](${blogUrl("pt")})
+
+## Articles
+${[...getPosts("pt"), ...getPosts("en")]
+  .map((p) => `- [${p.title}](${postUrl(p.locale, p.slug)}): ${p.description}`)
+  .join("\n")}
 
 ## Selected work
 ${t.work.cases.map((c) => `- ${c.name} (${c.role}, ${c.period}): ${c.summary}`).join("\n")}

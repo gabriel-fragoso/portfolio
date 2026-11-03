@@ -2,21 +2,31 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { appsUrl, homeUrl } from "@/lib/site";
+import { appsUrl, blogUrl, clinicsUrl, homeUrl } from "@/lib/site";
 import { content } from "@/lib/content";
 import type { Locale } from "@/lib/i18n";
-import { LanguageSwitch } from "@/components/language-switch";
+import {
+  LanguageSwitch,
+  type SwitchPaths,
+} from "@/components/language-switch";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export function Navbar({ locale }: { locale: Locale }) {
+export function Navbar({
+  locale,
+  switchPaths,
+}: {
+  locale: Locale;
+  switchPaths?: SwitchPaths;
+}) {
   const t = content[locale].nav;
   const home = homeUrl(locale);
   const navItems = [
     { name: t.work, href: `${home}#work` },
     { name: t.experience, href: `${home}#experience` },
-    { name: t.stack, href: `${home}#stack` },
+    { name: t.clinics, href: clinicsUrl(locale) },
+    { name: t.blog, href: blogUrl(locale) },
     { name: t.apps, href: appsUrl(locale) },
     { name: t.contact, href: `${home}#contact` },
   ];
@@ -54,7 +64,7 @@ export function Navbar({ locale }: { locale: Locale }) {
               Gabriel Fragoso
             </Link>
 
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
               {navItems.map((item, index) => (
                 <Link
                   key={index}
@@ -65,7 +75,11 @@ export function Navbar({ locale }: { locale: Locale }) {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-coral-500 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
-              <LanguageSwitch locale={locale} label={t.language} />
+              <LanguageSwitch
+                locale={locale}
+                label={t.language}
+                paths={switchPaths}
+              />
               <Button asChild size="sm">
                 <Link href={`${home}#contact`}>{t.cta}</Link>
               </Button>
@@ -118,7 +132,11 @@ export function Navbar({ locale }: { locale: Locale }) {
                   </Link>
                 </motion.div>
               ))}
-              <LanguageSwitch locale={locale} label={t.language} />
+              <LanguageSwitch
+                locale={locale}
+                label={t.language}
+                paths={switchPaths}
+              />
             </nav>
           </motion.div>
         )}

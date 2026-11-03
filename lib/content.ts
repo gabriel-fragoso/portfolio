@@ -48,6 +48,8 @@ export type Content = {
     apps: string;
     contact: string;
     cta: string;
+    clinics: string;
+    blog: string;
     home: string;
     language: string;
     openMenu: string;
@@ -105,6 +107,48 @@ export type Content = {
     text: string;
     whatsapp: string;
   };
+  clinics: {
+    meta: { title: string; description: string; keywords: string[] };
+    eyebrow: string;
+    title: string;
+    intro: string;
+    cta: string;
+    ctaMessage: string;
+    samplesEyebrow: string;
+    samplesTitle: string;
+    samplesText: string;
+    demoBadge: string;
+    visit: string;
+    moreComing: string;
+    includesTitle: string;
+    includes: { name: string; description: string }[];
+    processTitle: string;
+    steps: { name: string; description: string }[];
+    faqTitle: string;
+    faq: { q: string; a: string }[];
+    finalTitle: string;
+    finalText: string;
+    teaserEyebrow: string;
+    teaserTitle: string;
+    teaserText: string;
+    teaserCta: string;
+  };
+  blog: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    metaTitle: string;
+    metaDescription: string;
+    readPost: string;
+    minRead: (n: number) => string;
+    published: string;
+    back: string;
+    related: string;
+    empty: string;
+    ctaTitle: string;
+    ctaText: string;
+    ctaButton: string;
+  };
   footer: { legal: string };
   apps: {
     eyebrow: string;
@@ -145,6 +189,8 @@ const en: Content = {
     apps: "Apps",
     contact: "Contact",
     cta: "Get in touch",
+    clinics: "Clinics",
+    blog: "Blog",
     home: "Gabriel Fragoso, home",
     language: "Language",
     openMenu: "Open menu",
@@ -527,6 +573,130 @@ const en: Content = {
     text: "About a role, a project, or just to swap ideas.",
     whatsapp: "WhatsApp",
   },
+  clinics: {
+    meta: {
+      title: "Landing pages for clinics: dentistry, aesthetics and more",
+      description:
+        "Fast landing pages for dental, aesthetic and health clinics, built to show up on Google and turn visitors into WhatsApp appointment requests.",
+      keywords: [
+        "landing page for clinics",
+        "dental clinic website",
+        "aesthetic clinic landing page",
+        "website for dentists",
+        "clinic web design Brazil",
+      ],
+    },
+    eyebrow: "Clinics",
+    title: "Landing pages that turn searches into appointments.",
+    intro:
+      "I build fast, clear landing pages for dental, aesthetic and health clinics: a page that explains your treatments, builds trust and makes booking through WhatsApp one tap away.",
+    cta: "Request a landing page",
+    ctaMessage: "Hi! I'd like a landing page for my clinic.",
+    samplesEyebrow: "Samples",
+    samplesTitle: "Pages I've built.",
+    samplesText:
+      "Hover a card to see the live page, or open it in full. New landing pages are added here as they ship.",
+    demoBadge: "Sample page",
+    visit: "Open page",
+    moreComing: "More landing pages coming soon.",
+    includesTitle: "What's included",
+    includes: [
+      {
+        name: "Clear structure",
+        description:
+          "Treatments, about the professional, first visit, FAQ and a direct call to action, in the order patients look for answers.",
+      },
+      {
+        name: "WhatsApp booking",
+        description:
+          "Buttons with a pre-filled message, so the patient starts the conversation in one tap.",
+      },
+      {
+        name: "Fast on mobile",
+        description:
+          "Most patients arrive from a phone. Pages are lightweight, responsive and built to load quickly.",
+      },
+      {
+        name: "Ready for Google",
+        description:
+          "Title, description, structured data and local SEO basics, so the clinic can show up when people search in its city.",
+      },
+      {
+        name: "Your identity",
+        description:
+          "Colors, photos and tone of voice that match the clinic, within the advertising rules of your professional council.",
+      },
+    ],
+    processTitle: "How it works",
+    steps: [
+      {
+        name: "Briefing",
+        description:
+          "A short conversation about your treatments, patients, city and goals.",
+      },
+      {
+        name: "Design and content",
+        description:
+          "Page structure, texts and visual direction, reviewed with you.",
+      },
+      {
+        name: "Build and review",
+        description:
+          "I build the page, you review it on your phone, and we adjust.",
+      },
+      {
+        name: "Publish",
+        description:
+          "Domain, hosting, analytics and Google setup, so it goes live ready to be found.",
+      },
+    ],
+    faqTitle: "Questions from clinics",
+    faq: [
+      {
+        q: "What is a landing page for a clinic?",
+        a: "It is a focused page that presents the clinic and its treatments and leads the patient to one action, usually booking an appointment through WhatsApp.",
+      },
+      {
+        q: "Do I need a full website or is a landing page enough?",
+        a: "For many clinics, one well-built page is enough to start getting appointment requests. A multi-page website makes sense when there are many treatments or professionals, and a landing page can grow into one.",
+      },
+      {
+        q: "Can the page follow my professional council's advertising rules?",
+        a: "The structure and texts are written with care, but each council (such as CRO or CFM) has its own rules. Review the final content against them, and with a professional if needed.",
+      },
+      {
+        q: "How do I get started?",
+        a: "Send a message on WhatsApp telling me your specialty and city, and I reply with the next steps.",
+      },
+    ],
+    finalTitle: "Want a page like these for your clinic?",
+    finalText:
+      "Tell me your specialty and city on WhatsApp and I'll reply with the next steps.",
+    teaserEyebrow: "For clinics",
+    teaserTitle: "Landing pages for clinics.",
+    teaserText:
+      "Besides products and full-time roles, I build landing pages for dental, aesthetic and health clinics, designed to show up on Google and bring appointment requests through WhatsApp.",
+    teaserCta: "See clinic landing pages",
+  },
+  blog: {
+    eyebrow: "Blog",
+    title: "Notes on web, SEO and products.",
+    intro:
+      "Short, practical articles on landing pages, local SEO and building web products.",
+    metaTitle: "Blog",
+    metaDescription:
+      "Articles by Gabriel Fragoso on landing pages for clinics, local SEO and building fast web products.",
+    readPost: "Read article",
+    minRead: (n) => `${n} min read`,
+    published: "Published on",
+    back: "All articles",
+    related: "Keep reading",
+    empty: "No articles yet.",
+    ctaTitle: "Need a landing page for your clinic?",
+    ctaText:
+      "I build fast landing pages for clinics that show up on Google and bring appointments through WhatsApp.",
+    ctaButton: "See clinic landing pages",
+  },
   footer: { legal: " · CNPJ 66.231.519/0001-99" },
   apps: {
     eyebrow: "Apps",
@@ -574,6 +744,8 @@ const pt: Content = {
     apps: "Apps",
     contact: "Contato",
     cta: "Fale comigo",
+    clinics: "Clínicas",
+    blog: "Blog",
     home: "Gabriel Fragoso, início",
     language: "Idioma",
     openMenu: "Abrir menu",
@@ -921,6 +1093,131 @@ const pt: Content = {
     title: "Vamos conversar.",
     text: "Sobre uma vaga, um projeto ou só para trocar ideias.",
     whatsapp: "WhatsApp",
+  },
+  clinics: {
+    meta: {
+      title: "Landing pages para clínicas: odontologia, estética e saúde",
+      description:
+        "Landing pages rápidas para clínicas odontológicas, de estética e de saúde, feitas para aparecer no Google e transformar visitas em pedidos de consulta pelo WhatsApp.",
+      keywords: [
+        "landing page para clínica",
+        "site para clínica odontológica",
+        "landing page para clínica de estética",
+        "site para dentista",
+        "criação de site para clínicas",
+        "landing page para dentista",
+      ],
+    },
+    eyebrow: "Clínicas",
+    title: "Landing pages que transformam buscas em consultas.",
+    intro:
+      "Crio landing pages rápidas e claras para clínicas odontológicas, de estética e de saúde: uma página que explica os tratamentos, passa confiança e deixa o agendamento pelo WhatsApp a um toque.",
+    cta: "Quero uma landing page",
+    ctaMessage: "Olá! Quero uma landing page para a minha clínica.",
+    samplesEyebrow: "Exemplos",
+    samplesTitle: "Páginas que eu construí.",
+    samplesText:
+      "Passe o mouse no card para ver a página ao vivo, ou abra em tela cheia. Novas landing pages entram aqui conforme forem ficando prontas.",
+    demoBadge: "Página de exemplo",
+    visit: "Abrir página",
+    moreComing: "Mais landing pages em breve.",
+    includesTitle: "O que está incluído",
+    includes: [
+      {
+        name: "Estrutura clara",
+        description:
+          "Tratamentos, sobre o profissional, primeira consulta, dúvidas e uma chamada direta para ação, na ordem em que o paciente procura as respostas.",
+      },
+      {
+        name: "Agendamento pelo WhatsApp",
+        description:
+          "Botões com mensagem pronta, para o paciente iniciar a conversa com um toque.",
+      },
+      {
+        name: "Rápida no celular",
+        description:
+          "A maioria dos pacientes chega pelo celular. As páginas são leves, responsivas e feitas para carregar rápido.",
+      },
+      {
+        name: "Pronta para o Google",
+        description:
+          "Título, descrição, dados estruturados e o básico de SEO local, para a clínica poder aparecer quando buscarem na sua cidade.",
+      },
+      {
+        name: "A cara da sua clínica",
+        description:
+          "Cores, fotos e tom de voz alinhados à clínica, respeitando as regras de publicidade do seu conselho profissional.",
+      },
+    ],
+    processTitle: "Como funciona",
+    steps: [
+      {
+        name: "Briefing",
+        description:
+          "Uma conversa rápida sobre seus tratamentos, pacientes, cidade e objetivos.",
+      },
+      {
+        name: "Design e conteúdo",
+        description:
+          "Estrutura da página, textos e direção visual, revisados com você.",
+      },
+      {
+        name: "Construção e revisão",
+        description:
+          "Eu construo a página, você revisa no celular e ajustamos.",
+      },
+      {
+        name: "Publicação",
+        description:
+          "Domínio, hospedagem, analytics e configuração do Google, para a página entrar no ar pronta para ser encontrada.",
+      },
+    ],
+    faqTitle: "Dúvidas de quem tem clínica",
+    faq: [
+      {
+        q: "O que é uma landing page para clínica?",
+        a: "É uma página focada que apresenta a clínica e seus tratamentos e leva o paciente a uma única ação, em geral agendar uma consulta pelo WhatsApp.",
+      },
+      {
+        q: "Preciso de um site completo ou a landing page basta?",
+        a: "Para muitas clínicas, uma página bem feita já basta para começar a receber pedidos de consulta. Um site com várias páginas faz sentido quando há muitos tratamentos ou profissionais, e a landing page pode crescer até lá.",
+      },
+      {
+        q: "A página segue as regras de publicidade do meu conselho?",
+        a: "A estrutura e os textos são escritos com cuidado, mas cada conselho (como CRO ou CFM) tem as suas regras. Revise o conteúdo final com elas em mãos e, se precisar, com um profissional.",
+      },
+      {
+        q: "Como começo?",
+        a: "Mande uma mensagem no WhatsApp contando sua especialidade e a cidade, e eu respondo com os próximos passos.",
+      },
+    ],
+    finalTitle: "Quer uma página assim para a sua clínica?",
+    finalText:
+      "Conte sua especialidade e a cidade no WhatsApp que eu respondo com os próximos passos.",
+    teaserEyebrow: "Para clínicas",
+    teaserTitle: "Landing pages para clínicas.",
+    teaserText:
+      "Além de produtos e vagas em tempo integral, crio landing pages para clínicas odontológicas, de estética e de saúde, pensadas para aparecer no Google e trazer pedidos de consulta pelo WhatsApp.",
+    teaserCta: "Ver landing pages para clínicas",
+  },
+  blog: {
+    eyebrow: "Blog",
+    title: "Notas sobre web, SEO e produtos.",
+    intro:
+      "Artigos curtos e práticos sobre landing pages, SEO local e como construir produtos web.",
+    metaTitle: "Blog",
+    metaDescription:
+      "Artigos de Gabriel Fragoso sobre landing pages para clínicas, SEO local e como construir produtos web rápidos.",
+    readPost: "Ler artigo",
+    minRead: (n) => `${n} min de leitura`,
+    published: "Publicado em",
+    back: "Todos os artigos",
+    related: "Continue lendo",
+    empty: "Nenhum artigo ainda.",
+    ctaTitle: "Precisa de uma landing page para a sua clínica?",
+    ctaText:
+      "Crio landing pages rápidas para clínicas, que aparecem no Google e trazem consultas pelo WhatsApp.",
+    ctaButton: "Ver landing pages para clínicas",
   },
   footer: { legal: " · CNPJ 66.231.519/0001-99 · +55 83 99830 4284" },
   apps: {

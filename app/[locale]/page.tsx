@@ -4,6 +4,7 @@ import { HeroSection } from "@/components/hero-section";
 import { WorkSection } from "@/components/work-section";
 import { ExperienceSection } from "@/components/experience-section";
 import { TechStackSection } from "@/components/tech-stack-section";
+import { ClinicsTeaser } from "@/components/clinics-teaser";
 import { ServicesSection } from "@/components/services-section";
 import { FaqSection } from "@/components/faq-section";
 import { ContactSection } from "@/components/contact-section";
@@ -148,6 +149,7 @@ export default async function Home({
       <Navbar locale={locale} />
       <HeroSection locale={locale} />
       <WorkSection locale={locale} />
+      <ClinicsTeaser locale={locale} />
       <ExperienceSection locale={locale} />
       <TechStackSection locale={locale} />
       <ServicesSection locale={locale} />
